@@ -2,7 +2,71 @@
 @import './weather-icons-wind.min.css';
 @import './weather-icons.css';
 @import './weather-icons.min.css';
+@import '../font/Catamaran/stylesheet.css';
+@import '../font/Roboto/stylesheet.css';
 
-@import '../assets/font/Catamaran/stylesheet.css';
-@import '../assets/font/Roboto/stylesheet.css';
+$title-font: 'Catamaran', sans-serif, monospace;
+$body-font: 'Roboto', sans-serif, monospace;
 
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: darkred;
+  font: 400 16px/16px $body-font;
+  color: #303030;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+// MAIN PAGE OUTER CONTAINER --------------------------------------------//
+.main-page-container {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+// PAGE BACKGROUND IMAGE CONTAINER --------------------------------------------//
+.background-image-container {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  .background-image {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}

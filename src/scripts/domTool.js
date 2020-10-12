@@ -1,7 +1,7 @@
 const elementGen = (tag, className = null, idName = null) => {
   const element = document.createElement(tag);
   if (className) { element.classList.add(className) };
-  if (idName) { element.id = id };
+  if (idName) { element.id = idName };
   return element;
 }
 

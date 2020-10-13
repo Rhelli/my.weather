@@ -175,3 +175,73 @@ p {
     }
   }
 }
+
+// SIDEBAR ----------------------------------------------------------------//
+.sidebar {
+  display: flex;
+  height: 100%;
+  width: 30%;
+  flex-flow: column nowrap;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: url('../assets/img/textures/diagonales-decalees.png'), rgba(174, 182, 191, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 2;
+  border-left: 1px solid  rgba(40,41,41,0.4);
+  -webkit-box-shadow: -2px 0px 5px 0px rgba(40,41,41,0.29);
+  -moz-box-shadow: -2px 0px 5px 0px rgba(40,41,41,0.29);
+  box-shadow: -2px 0px 5px 0px rgba(40,41,41,0.29);
+  padding: 30px;
+
+  .location-component {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 60%;
+    border: 1px solid red;
+
+    .new-location-input-container {
+      display: flex;
+      height: 10%;
+      width: 100%;
+      flex-flow: row nowrap;
+
+      .new-location-form {
+        width: 100%;
+        height: 100%;
+
+        .new-location-input {
+          width: 80%;
+          height: 100%;
+          background-color: transparent;
+          outline: none;
+          border: none;
+          border-bottom: 2px solid rgba(174, 182, 191, 0.5);
+          font: 300 22px/22px $body-font;
+          color: white;
+        }
+
+        .new-location-submit {
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 80px;
+          width: 80px;
+          background: rgba(248, 249, 249, 0.9);
+          backdrop-filter: blur(15px);
+          border: none;
+          outline: none;
+        }
+      }
+    }
+
+    .location-list {
+      display: block;
+      width: 100%;
+      height: 90%;
+      border: 1px solid lightgreen;
+    }
+  }
+}

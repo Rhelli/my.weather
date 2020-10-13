@@ -189,7 +189,6 @@ p {
   background: url('../assets/img/textures/diagonales-decalees.png'), rgba(174, 182, 191, 0.5);
   backdrop-filter: blur(5px);
   z-index: 2;
-  border-left: 1px solid  rgba(40,41,41,0.4);
   -webkit-box-shadow: -2px 0px 5px 0px rgba(40,41,41,0.29);
   -moz-box-shadow: -2px 0px 5px 0px rgba(40,41,41,0.29);
   box-shadow: -2px 0px 5px 0px rgba(40,41,41,0.29);
@@ -242,6 +241,57 @@ p {
       width: 100%;
       height: 90%;
       border: 1px solid lightgreen;
+    }
+  }
+
+  .weather-details-component {
+    display: flex;
+    height: 40%;
+    width: 100%;
+    flex-flow: column nowrap;
+    border: 1px solid darkblue;
+
+    .weather-details-subtitle {
+      display: flex;
+      height: 15%;
+      width: 100%;
+      justify-content: start;
+      align-items: center;
+      border: 1px solid black;
+
+      .weather-details-text {
+        font: 400 24px/24px $title-font;
+        color: white;
+      }
+    }
+
+    .weather-details-list {
+      display: flex;
+      height: 85%;
+      width: 100%;
+      flex-flow: column nowrap;
+      border: 1px solid lightgreen;
+
+      div {
+        display: flex;
+        align-items: center;
+        height: 20%;
+        border: 1px solid lightcoral;
+
+        p {
+          width: 50%;
+          font: 400 16px/16px $body-font;
+          color: #dcdcdc;
+        }
+
+        .feels-like-data,
+        .cloud-cover-data,
+        .humidity-data,
+        .wind-speed-data,
+        .uv-index-data {
+          text-align: right;
+        }
+      }
     }
   }
 }

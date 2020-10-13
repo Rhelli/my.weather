@@ -58,15 +58,82 @@ h6 {
 
 // PAGE BACKGROUND IMAGE CONTAINER --------------------------------------------//
 .background-image-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 100%;
   width: 100%;
   padding: 0;
   margin: 0;
+  z-index: 1;
 
   .background-image {
     height: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
+  }
+}
+
+// CURRENT WEATHER COMPONENT -------------------------------------------------------//
+.current-weather-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35%;
+  width: 70%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border: 3px solid red;
+  z-index: 2;
+
+  .current-temp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    width: auto;
+    z-index: 2;
+    border: 1px solid lightcoral;
+    margin-right: 40px;
+    padding: 20px;
+
+    .current-temp {
+      font: $title-font;
+      font-weight: 400;
+      font-size: 120px;
+      color: white;
+    }
+  }
+
+  .current-location-info-container {
+    display: flex;
+    flex-flow: column nowrap;
+    height: auto;
+    width: auto;
+    border: 1px solid lightgreen;
+
+    .current-location-container,
+    .current-datetime-container {
+      display: flex;
+      height: 50%;
+      width: 100%;
+      justify-content: center;
+      align-items: flex-end;
+      border: 1px solid black;
+
+      .current-location {
+        font: 400 60px/60px $body-font;
+        color: white;
+      }
+
+      .current-datetime {
+        font: 300 26px/26px $body-font;
+        color: white;
+      }
+    }
   }
 }

@@ -5,7 +5,7 @@ const elementGen = (tag, className = null, idName = null) => {
   return element;
 }
 
-const textGen = (tag, text, symbol, className = null, idName = null) => {
+const textGen = (tag, text, className = null, idName = null, symbol = null) => {
   const element = document.createElement(tag);
   const unparsedText = text.split('');
   const spacedText = [];
@@ -23,4 +23,12 @@ const textGen = (tag, text, symbol, className = null, idName = null) => {
   return element;
 }
 
-export { elementGen, textGen }
+const componentBuilder = (className, idName, ...containers) => {
+  const mainContainer = elementGen('div', className, idName);
+  containers.forEach(container => {
+    mainContainer.appendChild(container);
+  })
+  return mainContainer;
+}
+
+export { elementGen, textGen, componentBuilder }

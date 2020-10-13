@@ -89,7 +89,6 @@ p {
   position: absolute;
   bottom: 0;
   left: 0;
-  border: 3px solid red;
   padding-bottom: 60px;
   z-index: 2;
 
@@ -99,8 +98,7 @@ p {
     align-items: center;
     height: 60%;
     width: auto;
-    z-index: 2;
-    border: 1px solid lightcoral;
+    z-index: 2;    
     margin-right: 40px;
     padding: 20px;
 
@@ -116,8 +114,7 @@ p {
     display: flex;
     flex-flow: column nowrap;
     height: 40%;
-    width: auto;
-    border: 1px solid lightgreen;
+    width: auto;    
 
     .current-location-container,
     .current-datetime-container {
@@ -125,8 +122,7 @@ p {
       height: 50%;
       width: 100%;
       justify-content: start;
-      align-items: flex-end;
-      border: 1px solid black;
+      align-items: flex-end;      
 
       .current-location {
         font: 400 60px/60px $body-font;
@@ -145,8 +141,7 @@ p {
     display: flex;
     flex-flow: column nowrap;
     height: 60%;
-    width: auto;
-    border: 1px solid lightcoral;
+    width: auto;    
     margin-left: 40px;
 
     .current-forecast-icon-container,
@@ -154,7 +149,6 @@ p {
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 1px solid lightgray;
       color: white;
     }
 
@@ -199,7 +193,7 @@ p {
     flex-flow: column nowrap;
     width: 100%;
     height: 60%;
-    border: 1px solid red;
+
 
     .new-location-input-container {
       display: flex;
@@ -218,8 +212,27 @@ p {
           outline: none;
           border: none;
           border-bottom: 2px solid rgba(174, 182, 191, 0.5);
-          font: 300 22px/22px $body-font;
+          font: 300 22px/22px $title-font;
           color: white;
+
+          &::placeholder {
+            color: rgba(234, 237, 237, 0.6);
+            font-weight: 400;
+          }
+
+          &:focus {
+            background-color: transparent;
+            outline: none;
+          }
+
+          &:-webkit-autofill,
+          &:-webkit-autofill:hover,
+          &:-webkit-autofill:focus,
+          &:-webkit-autofill:active {
+            -webkit-text-fill-color: white;
+            -webkit-box-shadow: 0 0 0px 1000px rgba(1, 1, 1, 0) inset;
+            transition: background-color 5000s ease-in-out 0s
+          }
         }
 
         .new-location-submit {
@@ -228,10 +241,29 @@ p {
           right: 0;
           height: 80px;
           width: 80px;
-          background: rgba(248, 249, 249, 0.9);
+          background: rgba(248, 249, 249, 0.7);
           backdrop-filter: blur(15px);
           border: none;
           outline: none;
+          transition-duration: 0.2s;
+          border-bottom-left-radius: 2px;
+
+          p {
+            font-size: 26px;
+            font-weight: 300;
+            color: #2C3E50;
+            transition-duration: 0.25s;
+          }
+
+          &:hover {
+            background-color: #FDFEFE;
+            transition-duration: 0.15s;
+
+            p {
+              color:#2980B9;
+              transition-duration: 0.2s;
+            }
+          }
         }
       }
     }
@@ -239,8 +271,7 @@ p {
     .location-list {
       display: block;
       width: 100%;
-      height: 90%;
-      border: 1px solid lightgreen;
+      height: 90%;      
     }
   }
 
@@ -249,15 +280,13 @@ p {
     height: 40%;
     width: 100%;
     flex-flow: column nowrap;
-    border: 1px solid darkblue;
 
     .weather-details-subtitle {
       display: flex;
       height: 15%;
       width: 100%;
       justify-content: start;
-      align-items: center;
-      border: 1px solid black;
+      align-items: center; 
 
       .weather-details-text {
         font: 400 24px/24px $title-font;
@@ -269,19 +298,17 @@ p {
       display: flex;
       height: 85%;
       width: 100%;
-      flex-flow: column nowrap;
-      border: 1px solid lightgreen;
+      flex-flow: column nowrap;      
 
       div {
         display: flex;
         align-items: center;
-        height: 20%;
-        border: 1px solid lightcoral;
+        height: 20%;        
 
         p {
           width: 50%;
-          font: 400 16px/16px $body-font;
-          color: #dcdcdc;
+          font: 300 16px/16px $body-font;
+          color: rgba(248, 249, 249, 0.7);
         }
 
         .feels-like-data,

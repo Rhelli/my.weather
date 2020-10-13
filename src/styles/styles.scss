@@ -175,3 +175,17 @@ p {
     }
   }
 }
+
+// SIDEBAR ----------------------------------------------------------------//
+.sidebar {
+  display: flex;
+  height: 100%;
+  width: 30%;
+  flex-flow: column nowrap;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(174, 182, 191, 0.4);
+  z-index: 2;
+}

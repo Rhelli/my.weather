@@ -26,7 +26,7 @@ const textGen = (tag, text, className = null, idName = null, symbol = null) => {
 const componentBuilder = (className, idName, ...containers) => {
   const mainContainer = elementGen('div', className, idName);
   containers.forEach(container => {
-    mainContainer.appendChild(container);
+    mainContainer.append(container);
   })
   return mainContainer;
 }

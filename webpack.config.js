@@ -21,7 +21,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HTMLWebpackPlugin({
-      title: 'Todo List',
+      title: 'my.weather',
     }),
     new PreloadWebpackPlugin(),
   ],

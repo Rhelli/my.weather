@@ -199,11 +199,12 @@ p {
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
-    height: 50%;
+    height: 60%;
+    border: 1px solid red;
 
     .new-location-input-container {
       display: flex;
-      height: 50px;
+      height: 10%;
       width: 100%;
       flex-flow: row nowrap;
 
@@ -234,6 +235,13 @@ p {
           outline: none;
         }
       }
+    }
+
+    .location-list {
+      display: block;
+      width: 100%;
+      height: 90%;
+      border: 1px solid lightgreen;
     }
   }
 }

@@ -6,7 +6,7 @@ const addLocation = () => {
   const input = generator.elementGen('input', 'new-location-input', 'newLocationInput');
   const submitButton = generator.elementGen('button', 'new-location-submit', 'newLocationSubmit');
   submitButton.type = 'submit';
-  const buttonText = generator.textGen('p', 'Save');
+  const buttonText = generator.textGen('p', '<i*class="fas*fa-plus"></i>', 'new-location-submit-text', 'newLocationSubmitText', '*');
   submitButton.appendChild(buttonText);
   form.append(input, submitButton);
   container.appendChild(form);

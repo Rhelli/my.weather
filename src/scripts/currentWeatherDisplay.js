@@ -27,7 +27,7 @@ const currentForecast = () => {
   const currentForecastTextContainer = generator.elementGen('div', 'current-forecast-text-container', 'currentForecastTextContainer');
   // PLACEHOLDER ------- //
   const currentForecastIcon = generator.textGen('p', '<i*class="wi*wi-day-sunny"></i>', 'current-forecast-icon', 'currentForecastIcon', '*');
-  const currentForecastText = generator.textGen('p', 'Sunny');
+  const currentForecastText = generator.textGen('p', 'Sunny', 'current-forecast-text', 'currentForecastText');
   currentForecastIconContainer.appendChild(currentForecastIcon);
   currentForecastTextContainer.appendChild(currentForecastText);
   container.append(currentForecastIconContainer, currentForecastTextContainer);

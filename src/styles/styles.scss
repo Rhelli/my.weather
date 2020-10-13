@@ -43,7 +43,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
   margin: 0;
   padding: 0;
 }
@@ -80,14 +81,16 @@ h6 {
 // CURRENT WEATHER COMPONENT -------------------------------------------------------//
 .current-weather-component {
   display: flex;
+  flex-flow: row nowrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   height: 35%;
   width: 70%;
   position: absolute;
   bottom: 0;
   left: 0;
   border: 3px solid red;
+  padding-bottom: 60px;
   z-index: 2;
 
   .current-temp-container {
@@ -112,7 +115,7 @@ h6 {
   .current-location-info-container {
     display: flex;
     flex-flow: column nowrap;
-    height: auto;
+    height: 40%;
     width: auto;
     border: 1px solid lightgreen;
 
@@ -121,7 +124,7 @@ h6 {
       display: flex;
       height: 50%;
       width: 100%;
-      justify-content: center;
+      justify-content: start;
       align-items: flex-end;
       border: 1px solid black;
 
@@ -133,6 +136,41 @@ h6 {
       .current-datetime {
         font: 300 26px/26px $body-font;
         color: white;
+        margin: 10px 0;
+      }
+    }
+  }
+
+  .current-forecast {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 60%;
+    width: auto;
+    border: 1px solid lightcoral;
+    margin-left: 40px;
+
+    .current-forecast-icon-container,
+    .current-forecast-text-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid lightgray;
+      color: white;
+    }
+
+    .current-forecast-icon-container {
+      height: 70%;
+
+      .current-forecast-icon {
+        font-size: 68px;
+      }
+    }
+
+    .current-forecast-text-container {
+      height: 30%;
+
+      .current-forecast-text {
+        font: 300 26px/26px $body-font;
       }
     }
   }

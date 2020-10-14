@@ -5,9 +5,11 @@ import currentWeatherComponent from './currentWeatherDisplay';
 import sidebar from './sidebar';
 
 (function () {
-  if (ls.loadItem('locationStorage').length < 1) {
+  if (!ls.loadItem('locationStorage') || ls.loadItem('locationStorage').length < 1) {
     const allLocations = [];
     ls.saveItem('locationStorage', allLocations);
+  } else {
+    return
   }
 })();
 

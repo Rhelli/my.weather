@@ -17,4 +17,13 @@ const saveLocation = () => {
   }
 }
 
-export { saveItem, loadItem, deleteItem, saveLocation };
+const deleteLocation = (id) => {
+  const savedLocations = loadItem('locationStorage');
+  if (savedLocations.length > 0) {
+    savedLocations.splice(id, 1);
+    saveItem('locationStorage', savedLocations);
+    location.reload();
+  }
+}
+
+export { saveItem, loadItem, deleteItem, saveLocation, deleteLocation };

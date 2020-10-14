@@ -271,7 +271,52 @@ p {
     .location-list {
       display: block;
       width: 100%;
-      height: 90%;      
+      height: 84%;
+      padding: 20px 0 30px 0;
+      overflow: hidden;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar,
+      &::-webkit-scrollbar-track {
+        width: 5px;
+        height: 50%;
+        background-color: rgba(248, 249, 249, 0.2);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(248, 249, 249, 0.6);
+        &::hover {
+          background: rgba(248, 249, 249, 1);
+        }
+      }
+
+      .location-list-item-container {
+        display: flex;
+        height: 50px;
+        width: 100%;
+        flex-flow: row nowrap;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .location-list-text {
+          font: 300 20px/20px $title-font;
+          color: rgba(248, 249, 249, 0.7);
+        }
+
+        .location-list-button {
+          height: 40px;
+          width: 40px;
+          margin-left: auto;
+          background-color: transparent;
+          outline: none;
+          color: rgba(248, 249, 249, 0.8);
+          border: none;
+
+          .location-delete-button-text {
+            font-size: 20px;
+          }
+        }
+      }
     }
   }
 
@@ -286,7 +331,7 @@ p {
       height: 15%;
       width: 100%;
       justify-content: start;
-      align-items: center; 
+      align-items: center;
 
       .weather-details-text {
         font: 400 24px/24px $title-font;
@@ -298,12 +343,12 @@ p {
       display: flex;
       height: 85%;
       width: 100%;
-      flex-flow: column nowrap;      
+      flex-flow: column nowrap;
 
       div {
         display: flex;
         align-items: center;
-        height: 20%;        
+        height: 20%;
 
         p {
           width: 50%;

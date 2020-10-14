@@ -140,7 +140,7 @@ p {
     display: flex;
     flex-flow: column nowrap;
     height: 60%;
-    width: auto;    
+    width: auto;
     margin-left: 40px;
 
     .current-forecast-icon-container,
@@ -513,12 +513,13 @@ p {
     .current-location-info-container {
       height: 35%;
       margin-top: 0;
+
       h3 {
         width: 100%;
       }
     }
   }
-  
+
   .sidebar {
     padding: 20px 10px;
     width: 45%;

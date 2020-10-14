@@ -1,4 +1,5 @@
 import * as ls from './locationStorage';
+import * as generator from './domTool';
 import weatherObjects from './weatherObjects';
 
 async function fetchMainWeatherData(cityName, units = null) {
@@ -9,8 +10,9 @@ async function fetchMainWeatherData(cityName, units = null) {
   return newMainWeatherObject(
     response.main.temp,
     response.name,
-    response.
-
+    generator.dateTimeGen(response.dt, response.timezone),
+    weather.icon,
+    weather.main
   )
 }
 

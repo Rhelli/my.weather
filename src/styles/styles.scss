@@ -100,11 +100,11 @@ p {
     width: auto;
     z-index: 2;
     padding: 20px;
+    padding-bottom: 0;
+
 
     .current-temp {
-      font: $title-font;
-      font-weight: 400;
-      font-size: 120px;
+      font: 400 120px/120px $title-font;
       color: white;
     }
   }
@@ -371,7 +371,7 @@ p {
 @media screen and (max-width: 1024px) {
   .current-weather-component {
     padding: 10px;
-    padding-top: none;
+    padding-top: 0;
 
     .current-temp-container {
       align-items: center;

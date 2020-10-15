@@ -37,4 +37,4 @@ const componentBuilder = (className, idName, ...containers) => {
   return mainContainer;
 }
 
-export { elementGen, textGen, componentBuilder }
+export { elementGen, textGen, componentBuilder, dateTimeGen }

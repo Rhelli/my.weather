@@ -1,8 +1,8 @@
 const path = require('path');
-const Dotenv = require('dotenv-webpack');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
@@ -20,12 +20,12 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    new Dotenv(),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HTMLWebpackPlugin({
       title: 'my.weather',
     }),
     new PreloadWebpackPlugin(),
+    new Dotenv(),
   ],
   module: {
     rules: [

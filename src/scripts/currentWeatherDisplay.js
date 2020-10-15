@@ -1,4 +1,5 @@
 import * as generator from './domTool';
+import * as api from './apiRequest';
 
 const currentTemp = () => {
   const container = generator.elementGen('div', 'current-temp-container', 'currentTempContainer');

@@ -8,13 +8,12 @@ const newMainWeatherObject = (temp, city, datetime, icon, main) => {
   }
 }
 
-const newWeatherDetailsObject = () => {
+const newWeatherDetailsObject = (feelsLike, cloudDCover, humidity, windSpeed) => {
   return {
     feelsLike,
     cloudCover,
     humidity,
-    windSpeed,
-    uvIndex
+    windSpeed
   }
 }
 

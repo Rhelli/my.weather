@@ -1,10 +1,13 @@
 import * as generator from './domTool';
 import * as api from './apiRequest';
 
-const currentTemp = () => {
+const mainWeatherObject = api.fetchMainWeatherData('London')
+console.log(mainWeatherObject);
+
+const currentTemp = (mainWeatherObject) => {
   const container = generator.elementGen('div', 'current-temp-container', 'currentTempContainer');
   // PLACEHOLDER ------- //
-  const currentTemp = generator.textGen('h1', '27°', 'current-temp', 'currentTemp');
+  const currentTemp = generator.textGen('h1', `${mainWeatherObject}`, 'current-temp', 'currentTemp');
   container.appendChild(currentTemp);
   return container;
 }
@@ -14,7 +17,7 @@ const currentLocationInfo = () => {
   const currentLocationContainer = generator.elementGen('div', 'current-location-container', 'currentLocationContainer');
   const currentDatetimeContainer = generator.elementGen('div', 'current-datetime-container', 'currentDatetimeContainer');
   // PLACEHOLDER ------ //
-  const currentLocation = generator.textGen('h3', 'London', 'current-location', 'currentLocation');
+  const currentLocation = generator.textGen('h3', 'London, UK', 'current-location', 'currentLocation');
   const currentDatetime = generator.textGen('p', "16:17*-*Tuesday,*13*Oct*'20", 'current-datetime', 'currentDatetime', '*');
   currentLocationContainer.appendChild(currentLocation);
   currentDatetimeContainer.appendChild(currentDatetime);

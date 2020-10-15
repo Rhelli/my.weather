@@ -24,8 +24,9 @@ const textGen = (tag, text, className = null, idName = null, symbol = null) => {
 }
 
 const dateTimeGen = (dt, timezone) => {
-  let datetime;
-  (timezone.split('')[0] === '-') ? datetime = new Date(dt * 1000 - (timezone * 1000)) : datetime = new Date(dt * 1000 + (timezone * 1000));
+  //let datetime;
+  //(timezone.split('')[0] === '-') ? datetime = new Date(dt * 1000 - (timezone * 1000)) : datetime = new Date(dt * 1000 + (timezone * 1000));
+  let datetime = new Date(dt * 1000 - (timezone * 1000))
   return datetime;
 }
 

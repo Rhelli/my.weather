@@ -25,7 +25,9 @@ module.exports = {
       title: 'my.weather',
     }),
     new PreloadWebpackPlugin(),
-    new Dotenv(),
+    new Dotenv({
+      path: path.resolve(__dirname, './.env'),
+    }),
   ],
   module: {
     rules: [

@@ -1,13 +1,25 @@
 import * as generator from './domTool';
 import * as api from './apiRequest';
 
-const mainWeatherObject = api.fetchMainWeatherData('London')
-console.log(mainWeatherObject);
+//const mainWeatherObject = api.fetchMainWeatherData('London')
+//const weatherDetailsObject = api.fetchWeatherDetailsData('London')
 
-const currentTemp = (mainWeatherObject) => {
+//console.log(mainWeatherObject)
+
+//const currentTemp = (mainWeatherObject) => {
+//  const container = generator.elementGen('div', 'current-temp-container', 'currentTempContainer');
+//  // PLACEHOLDER ------- //
+//  const currentTemp = generator.textGen('h1', `${mainWeatherObject}`, 'current-temp', 'currentTemp');
+//  container.appendChild(currentTemp);
+//  return container;
+//}
+
+async function currentTemp() {
+  const mainWeatherObject = await api.fetchMainWeatherData('London');
+  const temp = await mainWeatherObject.temp;
   const container = generator.elementGen('div', 'current-temp-container', 'currentTempContainer');
   // PLACEHOLDER ------- //
-  const currentTemp = generator.textGen('h1', `${mainWeatherObject}`, 'current-temp', 'currentTemp');
+  const currentTemp = generator.textGen('h1', `${temp}`, 'current-temp', 'currentTemp');
   container.appendChild(currentTemp);
   return container;
 }

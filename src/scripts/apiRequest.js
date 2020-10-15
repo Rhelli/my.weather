@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import { newMainWeatherObject, newWeatherDetailsObject } from './weatherObjects';
 
-async function fetchCityTimeData(lat, lng) {
+const fetchCityTimeData = async (lat, lng) => {
   const apiKey = process.env.TIMEZONE_KEY;
   const apiRequest = await fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=position&lat=${lat}&lng=${lng}`);
   const response = await apiRequest.json();
@@ -9,7 +9,7 @@ async function fetchCityTimeData(lat, lng) {
   return datetime;
 }
 
-async function fetchMainWeatherData(cityName) {
+const fetchMainWeatherData = async (cityName) => {
   if (cityName) {
     const apiKey = process.env.OPENWEATHER_KEY;
     const unitFormat = 'metric'
@@ -26,21 +26,17 @@ async function fetchMainWeatherData(cityName) {
   }
 }
 
-async function fetchWeatherDetailsData(cityName) {
+const fetchWeatherDetailsData = async (cityName) => {
   const apiKey = process.env.OPENWEATHER_KEY;
-  const apiRequest = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`, { mode: 'cors' });
+  const unitFormat = 'metric';
+  const apiRequest = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${unitFormat}`, { mode: 'cors' });
   const response = await apiRequest.json();
   return newWeatherDetailsObject(
-    response.feels_like,
-    response.clouds.all,
-    response.main.humidity,
-    response.wind.speed
+    response.list[0].main.feels_like,
+    response.list[0].clouds.all,
+    response.list[0].main.humidity,
+    response.list[0].wind.speed
   )
 }
 
-async function fetchImageData() {
-  const apiKey = process.env.UNSPLASH_API_KEY
-  const secretKey = process.env.UNSPLASH_SECRET_KEY
-}
-
-export { fetchMainWeatherData, fetchWeatherDetailsData, fetchImageData, fetchCityTimeData }
+export { fetchMainWeatherData, fetchWeatherDetailsData, fetchCityTimeData }

@@ -4,24 +4,19 @@ import * as api from './apiRequest';
 //const mainWeatherObject = api.fetchMainWeatherData('London')
 //const weatherDetailsObject = api.fetchWeatherDetailsData('London')
 
-//console.log(mainWeatherObject)
+//console.log(mainWeatherObject.temp)
 
-//const currentTemp = (mainWeatherObject) => {
-//  const container = generator.elementGen('div', 'current-temp-container', 'currentTempContainer');
-//  // PLACEHOLDER ------- //
-//  const currentTemp = generator.textGen('h1', `${mainWeatherObject}`, 'current-temp', 'currentTemp');
-//  container.appendChild(currentTemp);
-//  return container;
-//}
-
-async function currentTemp() {
-  const mainWeatherObject = await api.fetchMainWeatherData('London');
-  const temp = await mainWeatherObject.temp;
-  const container = generator.elementGen('div', 'current-temp-container', 'currentTempContainer');
-  // PLACEHOLDER ------- //
-  const currentTemp = generator.textGen('h1', `${temp}`, 'current-temp', 'currentTemp');
-  container.appendChild(currentTemp);
-  return container;
+const currentTemp = () => {
+  //const mainWeatherObject = await api.fetchMainWeatherData('London');
+  api.fetchMainWeatherData('London').
+    then(weatherObject => {
+      const container = generator.elementGen('div', 'current-temp-container', 'currentTempContainer');
+      console.log(weatherObject)
+      const currentTemp = generator.textGen('h1', `${weatherObject.temp}`, 'current-temp', 'currentTemp');
+      container.appendChild(currentTemp);
+      return container;
+    }).
+    catch(err => console.error(err));
 }
 
 const currentLocationInfo = () => {
@@ -54,5 +49,10 @@ const assembleComponent = () => {
   const currentWeatherComponent = generator.componentBuilder('current-weather-component', 'currentWeatherComponent', currentTemp(), currentLocationInfo(), currentForecast());
   return currentWeatherComponent;
 }
+
+//const assembleComponent = () => {
+//  const currentWeatherComponent = generator.componentBuilder('current-weather-component', 'currentWeatherComponent', currentTemp(), currentLocationInfo(), currentForecast());
+//  const currentWeatherComponent = generator.elementGen('div')
+//}
 
 export default assembleComponent;

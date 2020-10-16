@@ -10,20 +10,18 @@ const fetchCityTimeData = async (lat, lng) => {
 }
 
 const fetchMainWeatherData = async (cityName) => {
-  if (cityName) {
-    const apiKey = process.env.OPENWEATHER_KEY;
-    const unitFormat = 'metric'
-    const apiRequest = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${unitFormat}`, { mode: 'cors' });
-    const response = await apiRequest.json();
-    const requestedDatetime = await fetchCityTimeData(response.city.coord.lat, response.city.coord.lon);
-    return {
-      temp: Math.round(response.list[0].main.temp * 1),
-      cityName: response.city.name,
-      datetime: requestedDatetime,
-      //datetime: format(new Date(unparsedDatetime), 'p - cccc io, MMM yy'),
-      icon: response.list[0].weather[0].icon,
-      main: response.list[0].weather[0].main,
-    }
+  const apiKey = process.env.OPENWEATHER_KEY;
+  const unitFormat = 'metric'
+  const apiRequest = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${unitFormat}`, { mode: 'cors' });
+  const response = await apiRequest.json();
+  const requestedDatetime = await fetchCityTimeData(response.city.coord.lat, response.city.coord.lon);
+  return {
+    temp: Math.round(response.list[0].main.temp * 1),
+    cityName: response.city.name,
+    datetime: requestedDatetime,
+    //datetime: format(new Date(unparsedDatetime), 'p - cccc io, MMM yy'),
+    icon: response.list[0].weather[0].icon,
+    main: response.list[0].weather[0].main,
   }
 }
 

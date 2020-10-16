@@ -23,10 +23,6 @@ const textGen = (tag, text, className = null, idName = null, symbol = null) => {
   return element;
 }
 
-const dateTimeGen = (datetime) => {
-
-}
-
 const componentBuilder = (className, idName, ...containers) => {
   const mainContainer = elementGen('div', className, idName);
   containers.forEach(container => {
@@ -35,4 +31,4 @@ const componentBuilder = (className, idName, ...containers) => {
   return mainContainer;
 }
 
-export { elementGen, textGen, componentBuilder, dateTimeGen }
+export { elementGen, textGen, componentBuilder }

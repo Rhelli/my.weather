@@ -1,23 +1,59 @@
 import * as generator from './domTool';
 import * as api from './apiRequest';
 
-//const mainWeatherObject = api.fetchMainWeatherData('London')
-//const weatherDetailsObject = api.fetchWeatherDetailsData('London')
-
-//console.log(mainWeatherObject.temp)
-
 const currentTemp = () => {
-  //const mainWeatherObject = await api.fetchMainWeatherData('London');
-  api.fetchMainWeatherData('London').
-    then(weatherObject => {
-      const container = generator.elementGen('div', 'current-temp-container', 'currentTempContainer');
-      console.log(weatherObject)
-      const currentTemp = generator.textGen('h1', `${weatherObject.temp}`, 'current-temp', 'currentTemp');
-      container.appendChild(currentTemp);
-      return container;
-    }).
-    catch(err => console.error(err));
+  const container = generator.elementGen('div', 'current-temp-container', 'currentTempContainer');
+  const currentTemp = generator.textGen('h1', '', 'current-temp', 'currentTemp');
+  container.appendChild(currentTemp);
+  return container;
+
 }
+
+//const currentTemp = () => {
+//  //const mainWeatherObject = await api.fetchMainWeatherData('London');
+//  const response = api.fetchMainWeatherData('London').
+//    then(weatherObject => {
+//      console.log(weatherObject)
+//      const container = generator.elementGen('div', 'current-temp-container', 'currentTempContainer');
+//      const currentTemp = generator.textGen('h1', `${weatherObject.temp}`, 'current-temp', 'currentTemp');
+//      container.appendChild(currentTemp);
+//      return container;
+//    }, err => {
+//      console.error(err)
+//    })
+//}
+
+//const currentTemp = async () => {
+//  const mainWeatherObject = await api.fetchMainWeatherData('London');
+//  const container = generator.elementGen('div', 'current-temp-container', 'currentTempContainer');
+//  console.log(mainWeatherObject)
+//  const currentTemp = generator.textGen('h1', `${mainWeatherObject.temp}`, 'current-temp', 'currentTemp');
+//  container.appendChild(currentTemp);
+//  document.body.appendChild(container);
+//}
+
+//const currentTemp = () => {
+//  return api
+//    .fetchMainWeatherData("London")
+//    .then((weatherObject) => {
+//      console.log(weatherObject);
+//      const container = generator.elementGen(
+//        "div",
+//        "current-temp-container",
+//        "currentTempContainer"
+//      );
+//      console.log(weatherObject);
+//      const currentTemp = generator.textGen(
+//        "h1",
+//        `${weatherObject.temp}`,
+//        "current-temp",
+//        "currentTemp"
+//      );
+//      container.appendChild(currentTemp);
+//      return container;
+//    })
+//    .catch((err) => console.error(err));
+//};
 
 const currentLocationInfo = () => {
   const container = generator.elementGen('div', 'current-location-info-container', 'currentLocationInfoContainer');
@@ -51,8 +87,12 @@ const assembleComponent = () => {
 }
 
 //const assembleComponent = () => {
-//  const currentWeatherComponent = generator.componentBuilder('current-weather-component', 'currentWeatherComponent', currentTemp(), currentLocationInfo(), currentForecast());
-//  const currentWeatherComponent = generator.elementGen('div')
+//  //const currentWeatherComponent = generator.componentBuilder('current-weather-component', 'currentWeatherComponent', currentTemp(), currentLocationInfo(), currentForecast());
+//  const currentWeatherComponent = generator.elementGen('div', 'current-weather-component', 'currentWeatherComponent');
+//  currentTemp().then(response => {
+//    currentWeatherComponent.appendChild(response);
+//    return currentWeatherComponent
+//  })
 //}
 
 export default assembleComponent;

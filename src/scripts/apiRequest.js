@@ -24,7 +24,17 @@ const fetchMainWeatherData = async (cityName) => {
     icon: response.list[0].weather[0].id,
     main: response.list[0].weather[0].main,
     description: response.list[0].weather[0].description,
+    lat: response.city.coord.lat,
+    lon: response.city.coord.lon,
   }
+}
+
+const fetchUvIndexData = async (lat, lon) => {
+  const apiKey = process.env.OPENWEATHER_KEY;
+  const apiRequest = await fetch(`http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+  const response = await apiRequest.json();
+  const index = response;
+  return index;
 }
 
 
@@ -33,12 +43,14 @@ const fetchWeatherDetailsData = async (cityName) => {
   const unitFormat = 'metric';
   const apiRequest = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${unitFormat}`, { mode: 'cors' });
   const response = await apiRequest.json();
-  return newWeatherDetailsObject(
-    response.list[0].main.feels_like,
-    response.list[0].clouds.all,
-    response.list[0].main.humidity,
-    response.list[0].wind.speed
-  )
+  const uvIndex = await fetchUvIndexData(response.city.coord.lat, response.city.coord.lon);
+  return {
+    feelsLike: response.list[0].main.feels_like,
+    cloudCover: response.list[0].clouds.all,
+    humidity: response.list[0].main.humidity,
+    windSpeed: response.list[0].wind.speed,
+    uvIndex: uvIndex.value,
+  }
 }
 
 export { fetchMainWeatherData, fetchWeatherDetailsData, fetchCityTimeData }

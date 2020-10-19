@@ -30,6 +30,11 @@ const countryCodeFormatter = (country) => {
   return array;
 }
 
+const capitalize = (text) => {
+  let parsed = text.replace(/(^\w|\s\w)/g, m => m.toUpperCase())
+  return parsed;
+}
+
 const componentBuilder = (className, idName, ...containers) => {
   const mainContainer = elementGen('div', className, idName);
   containers.forEach(container => {
@@ -38,4 +43,4 @@ const componentBuilder = (className, idName, ...containers) => {
   return mainContainer;
 }
 
-export { elementGen, textGen, countryCodeFormatter, componentBuilder }
+export { elementGen, textGen, countryCodeFormatter, capitalize, componentBuilder }

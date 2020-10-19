@@ -3,7 +3,7 @@ import * as ls from './locationStorage';
 import backgroundImage from './backgroundManager';
 import currentWeatherComponent from './currentWeatherDisplay';
 import sidebar from './sidebar';
-import mainWeatherDataPipe from './mainWeatherDataPipe';
+import { appendMainWeatherData } from './mainWeatherDataPipe';
 
 (function () {
   if (!ls.loadItem('locationStorage') || ls.loadItem('locationStorage').length < 1) {
@@ -21,7 +21,7 @@ const pageBuilder = () => {
 }
 
 (function () {
-  mainWeatherDataPipe();
+  appendMainWeatherData();
 })();
 
 export default pageBuilder;

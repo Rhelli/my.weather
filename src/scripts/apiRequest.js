@@ -1,4 +1,4 @@
-import format from 'date-fns/format'
+import format from 'date-fns/format';
 import { newMainWeatherObject, newWeatherDetailsObject } from './weatherObjects';
 
 const fetchCityTimeData = async (lat, lng) => {
@@ -20,9 +20,10 @@ const fetchMainWeatherData = async (cityName) => {
     cityName: response.city.name,
     country: response.city.country,
     datetime: requestedDatetime,
-    //datetime: format(new Date(unparsedDatetime), 'p - cccc io, MMM yy'),
-    icon: response.list[0].weather[0].icon,
+    datetime: format(new Date(requestedDatetime), 'p - cccc io, MMM yy'),
+    icon: response.list[0].weather[0].id,
     main: response.list[0].weather[0].main,
+    description: response.list[0].weather[0].description,
   }
 }
 

@@ -89,7 +89,7 @@ p {
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 0 0 60px 60px;
+  padding: 0 0 60px 40px;
   z-index: 2;
 
   .current-temp-container {
@@ -99,8 +99,7 @@ p {
     height: 60%;
     width: auto;
     z-index: 2;
-    padding: 20px;
-    padding-bottom: 0;
+    padding: 40px 20px 0px 20px;
 
 
     .current-temp {
@@ -139,20 +138,21 @@ p {
   .current-forecast {
     display: flex;
     flex-flow: column nowrap;
-    height: 60%;
+    height: 80%;
     width: auto;
     margin-left: 40px;
 
     .current-forecast-icon-container,
-    .current-forecast-text-container {
+    .current-forecast-text-container,
+    .current-forecast-extra-text-container {
       display: flex;
       justify-content: center;
-      align-items: center;
       color: white;
     }
 
     .current-forecast-icon-container {
-      height: 70%;
+      height: 50%;
+      align-items: flex-end;
 
       .current-forecast-icon {
         font-size: 68px;
@@ -160,10 +160,21 @@ p {
     }
 
     .current-forecast-text-container {
+      align-items: center;
       height: 30%;
 
       .current-forecast-text {
         font: 300 26px/26px $body-font;
+      }
+    }
+
+    .current-forecast-extra-text-container {
+      align-items: center;
+      height: 20%;
+
+      .current-forecast-extra-text {
+        font: 300 16px/16px $body-font;
+        padding-bottom: 4px;
       }
     }
   }

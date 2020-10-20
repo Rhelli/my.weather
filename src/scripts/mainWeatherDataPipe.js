@@ -1,11 +1,25 @@
 import * as utility from './domTool';
+import * as ls from './locationStorage';
 import * as api from './apiRequest';
 
-const city = 'London';
+const citySelector = (cityName) => {
+  let city;
+  if (!cityName && ls.loadItem('locationStorage').length > 0) {
+    city = ls.loadItem('locationStorage')[0];
+    return city;
+  } else if (cityName) {
+    city = cityName;
+    return city;
+  } else {
+    return;
+  }
+}
+
+//const city = 'London';
 const appendMainWeatherData = () => {
   const componentElementIds = ['currentTemp', 'currentLocation', 'currentDatetime', 'currentForecastIcon', 'currentForecastText', 'currentForecastExtraText'];
   const componentDataNames = ['temp', 'cityName', 'datetime', 'icon', 'main', 'description'];
-  api.fetchMainWeatherData(city)
+  api.fetchMainWeatherData(citySelector())
     .then(weatherObject => {
       for (let i = 0; i < componentElementIds.length; i++) {
         const element = document.getElementById(`${componentElementIds[i]}`);
@@ -25,7 +39,7 @@ const appendMainWeatherData = () => {
 
 const appendWeatherDetailsData = () => {
   const listItems = ['feelsLike', 'cloudCover', 'humidity', 'windSpeed', 'uvIndex'];
-  api.fetchWeatherDetailsData(city)
+  api.fetchWeatherDetailsData(citySelector())
     .then(weatherDetails => {
       for (let i = 0; i < listItems.length; i++) {
         const element = document.getElementById(`${listItems[i]}Data`);

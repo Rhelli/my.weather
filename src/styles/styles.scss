@@ -295,7 +295,7 @@ p {
 
       &::-webkit-scrollbar-thumb {
         background: rgba(248, 249, 249, 0.6);
-        &::hover {
+        &:hover {
           background: rgba(248, 249, 249, 1);
         }
       }
@@ -315,6 +315,7 @@ p {
           height: 100%;
           width: 50%;
           color: rgba(248, 249, 249, 0.7);
+          cursor: pointer;
         }
 
         .location-list-button {

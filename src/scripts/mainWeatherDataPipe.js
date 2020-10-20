@@ -2,24 +2,10 @@ import * as utility from './domTool';
 import * as ls from './locationStorage';
 import * as api from './apiRequest';
 
-const citySelector = (cityName) => {
-  let city;
-  if (!cityName && ls.loadItem('locationStorage').length > 0) {
-    city = ls.loadItem('locationStorage')[0];
-    return city;
-  } else if (cityName) {
-    city = cityName;
-    return city;
-  } else {
-    return;
-  }
-}
-
-//const city = 'London';
-const appendMainWeatherData = () => {
+const appendMainWeatherData = (cityName) => {
   const componentElementIds = ['currentTemp', 'currentLocation', 'currentDatetime', 'currentForecastIcon', 'currentForecastText', 'currentForecastExtraText'];
   const componentDataNames = ['temp', 'cityName', 'datetime', 'icon', 'main', 'description'];
-  api.fetchMainWeatherData(citySelector())
+  api.fetchMainWeatherData(cityName)
     .then(weatherObject => {
       for (let i = 0; i < componentElementIds.length; i++) {
         const element = document.getElementById(`${componentElementIds[i]}`);
@@ -37,9 +23,9 @@ const appendMainWeatherData = () => {
     })
 }
 
-const appendWeatherDetailsData = () => {
+const appendWeatherDetailsData = (cityName) => {
   const listItems = ['feelsLike', 'cloudCover', 'humidity', 'windSpeed', 'uvIndex'];
-  api.fetchWeatherDetailsData(citySelector())
+  api.fetchWeatherDetailsData(cityName)
     .then(weatherDetails => {
       for (let i = 0; i < listItems.length; i++) {
         const element = document.getElementById(`${listItems[i]}Data`);
@@ -57,4 +43,22 @@ const appendWeatherDetailsData = () => {
     })
 }
 
-export { appendMainWeatherData, appendWeatherDetailsData };
+const citySelector = (cityName) => {
+  let city;
+  if (!cityName && ls.loadItem('lastSelected') && ls.loadItem('lastSelected').length > 0) {
+    city = ls.loadItem('lastSelected');
+    appendMainWeatherData(city);
+    appendWeatherDetailsData(city);
+  } else if (!cityName && ls.loadItem('locationStorage').length > 0) {
+    city = ls.loadItem('locationStorage')[0];
+    appendMainWeatherData(city);
+    appendWeatherDetailsData(city)
+  } else if (cityName) {
+    appendMainWeatherData(cityName);
+    appendWeatherDetailsData(cityName);
+  } else {
+    return;
+  }
+}
+
+export { appendMainWeatherData, appendWeatherDetailsData, citySelector };

@@ -26,4 +26,15 @@ const deleteLocation = (id) => {
   }
 }
 
-export { saveItem, loadItem, deleteItem, saveLocation, deleteLocation };
+const lastSelected = (cityName) => {
+  if (loadItem('lastSelected') && loadItem('lastSelected').length > 0) {
+    const citySelection = loadItem('lastSelected')[0];
+    citySelection = cityName;
+    saveItem('lastSelected', citySelection);
+  } else {
+    const newSelection = [cityName];
+    saveItem('lastSelected', newSelection);
+  }
+}
+
+export { saveItem, loadItem, deleteItem, saveLocation, deleteLocation, lastSelected };

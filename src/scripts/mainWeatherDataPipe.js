@@ -27,25 +27,22 @@ const appendWeatherDetailsData = (cityName) => {
   const listItems = ['feelsLike', 'cloudCover', 'humidity', 'windSpeed', 'uvIndex'];
   api.fetchWeatherDetailsData(cityName)
     .then(weatherDetails => {
-      for (let i = 0; i < listItems.length; i++) {
-        const element = document.getElementById(`${listItems[i]}Data`);
-        const listItem = `${listItems[i]}`;
-        if (element.id === 'cloudCoverData' || element.id === 'humidityData') {
-          element.innerHTML = `${weatherDetails[listItem]} %`;
-        } else if (element.id === 'windSpeedData') {
-          element.innerHTML = `${weatherDetails[listItem]} M/s`;
-        } else if (element.id === 'feelsLikeData') {
-          element.innerHTML = `${Math.round(weatherDetails[listItem] * 1)}°`;
-        } else {
-          element.innerHTML = `${weatherDetails[listItem]}`;
-        }
-      }
+      const feelsLike = document.getElementById('feelsLikeData');
+      const cloudCover = document.getElementById('cloudCoverData');
+      const humidity = document.getElementById('humidityData');
+      const windSpeed = document.getElementById('windSpeedData');
+      const uvIndex = document.getElementById('uvIndexData');
+      feelsLike.innerHTML = `${Math.round(weatherDetails.feelsLike * 1)}°`;
+      cloudCover.innerHTML = `${weatherDetails.cloudCover} %`;
+      humidity.innerHTML = `${weatherDetails.humidity} %`;
+      windSpeed.innerHTML = `${weatherDetails.windSpeed} M/s`;
+      uvIndex.innerHTML = utility.uvConverter(`${weatherDetails.uvIndex}`);
     })
 }
 
 const citySelector = (cityName) => {
   let city;
-  if (!cityName && ls.loadItem('lastSelected') && ls.loadItem('lastSelected').length > 0) {
+  if (ls.loadItem('lastSelected') && !cityName) {
     city = ls.loadItem('lastSelected');
     appendMainWeatherData(city);
     appendWeatherDetailsData(city);

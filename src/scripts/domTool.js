@@ -35,6 +35,20 @@ const capitalize = (text) => {
   return parsed;
 }
 
+const uvConverter = (value) => {
+  if (value < 2) {
+    return 'Low';
+  } else if (value < 5) {
+    return 'Medium';
+  } else if (value < 7) {
+    return 'High';
+  } else if (value < 10) {
+    return 'Very High';
+  } else if (value > 11) {
+    return 'Extremely High';
+  }
+}
+
 const componentBuilder = (className, idName, ...containers) => {
   const mainContainer = elementGen('div', className, idName);
   containers.forEach(container => {
@@ -43,4 +57,4 @@ const componentBuilder = (className, idName, ...containers) => {
   return mainContainer;
 }
 
-export { elementGen, textGen, countryCodeFormatter, capitalize, componentBuilder }
+export { elementGen, textGen, countryCodeFormatter, capitalize, uvConverter, componentBuilder }

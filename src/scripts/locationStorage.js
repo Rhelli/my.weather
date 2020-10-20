@@ -28,8 +28,8 @@ const deleteLocation = (id) => {
 
 const lastSelected = (cityName) => {
   if (loadItem('lastSelected') && loadItem('lastSelected').length > 0) {
-    const citySelection = loadItem('lastSelected')[0];
-    citySelection = cityName;
+    const citySelection = loadItem('lastSelected');
+    citySelection[0] = cityName;
     saveItem('lastSelected', citySelection);
   } else {
     const newSelection = [cityName];

@@ -3,20 +3,23 @@ import * as api from './apiRequest';
 
 const city = 'London';
 const appendMainWeatherData = () => {
+  const componentElementIds = ['currentTemp', 'currentLocation', 'currentDatetime', 'currentForecastIcon', 'currentForecastText', 'currentForecastExtraText'];
+  const componentDataNames = ['temp', 'cityName', 'datetime', 'icon', 'main', 'description'];
   api.fetchMainWeatherData(city)
     .then(weatherObject => {
-      const mainTempDisplay = document.getElementById('currentTemp');
-      const mainLocationDisplay = document.getElementById('currentLocation');
-      const mainDatetimeDisplay = document.getElementById('currentDatetime');
-      const mainWeatherIcon = document.getElementById('currentForecastIcon');
-      const mainWeatherSummary = document.getElementById('currentForecastText');
-      const mainWeatherExtraInfo = document.getElementById('currentForecastExtraText');
-      mainTempDisplay.innerHTML = `${weatherObject.temp}°`;
-      mainLocationDisplay.innerHTML = `${weatherObject.cityName}, ${utility.countryCodeFormatter(weatherObject.country)}`;
-      mainDatetimeDisplay.innerHTML = `${weatherObject.datetime}`;
-      mainWeatherIcon.classList.add(`wi-owm-${weatherObject.icon}`);
-      mainWeatherSummary.innerHTML = `${weatherObject.main}`;
-      mainWeatherExtraInfo.innerHTML = utility.capitalize(`${weatherObject.description}`);
+      for (let i = 0; i < componentElementIds.length; i++) {
+        const element = document.getElementById(`${componentElementIds[i]}`);
+        const dataName = `${componentDataNames[i]}`;
+        if (element.id === 'currentTemp') {
+          element.innerHTML = `${weatherObject.temp}°`;
+        } else if (element.id === 'currentForecastIcon') {
+          element.classList.add(`wi-owm-${weatherObject.icon}`);
+        } else if (element.id === 'currentForecastExtraText') {
+          element.innerHTML = utility.capitalize(`${weatherObject.description}`);
+        } else {
+          element.innerHTML = `${weatherObject[dataName]}`;
+        }
+      }
     })
 }
 
@@ -27,7 +30,15 @@ const appendWeatherDetailsData = () => {
       for (let i = 0; i < listItems.length; i++) {
         const element = document.getElementById(`${listItems[i]}Data`);
         const listItem = `${listItems[i]}`;
-        element.innerHTML = `${weatherDetails[listItem]}`;
+        if (element.id === 'cloudCoverData' || element.id === 'humidityData') {
+          element.innerHTML = `${weatherDetails[listItem]} %`;
+        } else if (element.id === 'windSpeedData') {
+          element.innerHTML = `${weatherDetails[listItem]} M/s`;
+        } else if (element.id === 'feelsLikeData') {
+          element.innerHTML = `${Math.round(weatherDetails[listItem] * 1)}°`;
+        } else {
+          element.innerHTML = `${weatherDetails[listItem]}`;
+        }
       }
     })
 }

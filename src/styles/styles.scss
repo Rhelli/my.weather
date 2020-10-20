@@ -113,6 +113,7 @@ p {
     flex-flow: column nowrap;
     height: 40%;
     width: auto;
+    max-width: 50%;
 
     .current-location-container,
     .current-datetime-container {

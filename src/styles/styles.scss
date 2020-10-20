@@ -78,6 +78,51 @@ p {
   }
 }
 
+// SHORTCUT BAR COMPONENT ---------------------------------------------------------------//
+.shortcut-bar {
+  display: flex;
+  justify-items: flex-start;
+  align-items: center;
+  height: 60px;
+  width: 240px;
+  background-color: rgba(213, 216, 220, 0.8);
+  border-radius: 4px;
+  margin: 60px 0 0 60px;
+  padding: 0 0 0 20px;
+
+  .refresh-button-container,
+  .delete-data-container {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    //margin: 0 10px;
+
+    .refresh-button,
+    .delete-my-data-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 70%;
+      width: 100%;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      border-right: 2px solid rgba(127, 140, 141, 0.4);
+
+      i {
+        font-size: 22px;
+      }
+    }
+  }
+
+  .temp-format-container {
+    height: 70%;
+    width: 90px;
+    border: 1px solid black;
+  }
+}
+
 // CURRENT WEATHER COMPONENT -------------------------------------------------------//
 .current-weather-component {
   display: flex;

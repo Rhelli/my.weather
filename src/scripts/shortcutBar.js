@@ -14,7 +14,7 @@ const deleteMyDataContainer = () => {
   const deleteMyDataContainer = utility.elementGen('div', 'delete-data-container', 'deleteDataContainer');
   const deleteMyDataButton = utility.elementGen('button', 'delete-my-data-button', 'deleteMyDataButton');
   deleteMyDataButton.title = 'Delete all your stored data.'
-  const buttonText = utility.textGen('i', '<i*class="far*fa-trash-alt"></i>', 'delete-my-data-button', 'deleteMyDataButton', '*');
+  const buttonText = utility.textGen('i', '<i*class="far*fa-trash-alt"></i>', 'delete-my-data-icon', 'deleteMyDataIcon', '*');
   deleteMyDataButton.appendChild(buttonText);
   deleteMyDataContainer.appendChild(deleteMyDataButton);
   return deleteMyDataContainer;

@@ -19,7 +19,12 @@ const saveLocation = () => {
 
 const deleteLocation = (id) => {
   const savedLocations = loadItem('locationStorage');
+  let lastSelected = loadItem('lastSelected');
   if (savedLocations.length > 0) {
+    if (savedLocations[id] === lastSelected[0]) {
+      lastSelected = [];
+      saveItem('lastSelected', lastSelected);
+    }
     savedLocations.splice(id, 1);
     saveItem('locationStorage', savedLocations);
     location.reload();

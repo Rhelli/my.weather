@@ -40,17 +40,17 @@ const appendWeatherDetailsData = (cityName) => {
 
 const citySelector = (cityName) => {
   let city;
-  if (ls.loadItem('lastSelected') && !cityName) {
+  if (cityName) {
+    appendMainWeatherData(cityName);
+    appendWeatherDetailsData(cityName);
+  } else if (ls.loadItem('lastSelected').length > 0) {
     city = ls.loadItem('lastSelected');
     appendMainWeatherData(city);
     appendWeatherDetailsData(city);
-  } else if (!cityName && ls.loadItem('locationStorage').length > 0) {
+  } else if (ls.loadItem('locationStorage').length > 0) {
     city = ls.loadItem('locationStorage')[0];
     appendMainWeatherData(city);
-    appendWeatherDetailsData(city)
-  } else if (cityName) {
-    appendMainWeatherData(cityName);
-    appendWeatherDetailsData(cityName);
+    appendWeatherDetailsData(city);
   } else {
     return;
   }

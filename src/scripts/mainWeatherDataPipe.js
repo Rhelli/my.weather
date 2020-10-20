@@ -24,18 +24,6 @@ const appendWeatherDetailsData = () => {
   const listItems = ['feelsLike', 'cloudCover', 'humidity', 'windSpeed', 'uvIndex'];
   api.fetchWeatherDetailsData(city)
     .then(weatherDetails => {
-      //const feelsLike = document.getElementById('feelsLikeData');
-      //const cloudCover = document.getElementById('cloudCoverData');
-      //const humidity = document.getElementById('humidityData');
-      //const windSpeed = document.getElementById('windSpeedData');
-      //const uvIndex = document.getElementById('uvIndexData');
-      //console.log(weatherDetails.uvData);
-      //feelsLike.innerHTML = `${weatherDetails.feelsLike}`;
-      //cloudCover.innerHTML = `${weatherDetails.cloudCover}`;
-      //humidity.innerHTML = `${weatherDetails.humidity}`;
-      //windSpeed.innerHTML = `${weatherDetails.windSpeed}`;
-      //uvIndex.innerHTML = `${weatherDetails.uvIndex}`;
-
       for (let i = 0; i < listItems.length; i++) {
         const element = document.getElementById(`${listItems[i]}Data`);
         const listItem = `${listItems[i]}`;

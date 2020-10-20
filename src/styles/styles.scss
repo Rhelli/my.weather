@@ -82,14 +82,14 @@ p {
 .current-weather-component {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: start;
   align-items: flex-end;
   height: 35%;
   width: 70%;
   position: absolute;
   bottom: 0;
   left: 0;
-  padding-bottom: 60px;
+  padding: 0 0 60px 40px;
   z-index: 2;
 
   .current-temp-container {
@@ -98,14 +98,11 @@ p {
     align-items: center;
     height: 60%;
     width: auto;
-    z-index: 2;    
-    margin-right: 40px;
-    padding: 20px;
+    z-index: 2;
+    padding: 40px 20px 0px 20px;
 
     .current-temp {
-      font: $title-font;
-      font-weight: 400;
-      font-size: 120px;
+      font: 400 120px/120px $title-font;
       color: white;
     }
   }
@@ -114,7 +111,8 @@ p {
     display: flex;
     flex-flow: column nowrap;
     height: 40%;
-    width: auto;    
+    width: auto;
+    max-width: 50%;
 
     .current-location-container,
     .current-datetime-container {
@@ -122,7 +120,7 @@ p {
       height: 50%;
       width: 100%;
       justify-content: start;
-      align-items: flex-end;      
+      align-items: flex-end;
 
       .current-location {
         font: 400 60px/60px $body-font;
@@ -140,20 +138,21 @@ p {
   .current-forecast {
     display: flex;
     flex-flow: column nowrap;
-    height: 60%;
-    width: auto;    
+    height: 80%;
+    width: auto;
     margin-left: 40px;
 
     .current-forecast-icon-container,
-    .current-forecast-text-container {
+    .current-forecast-text-container,
+    .current-forecast-extra-text-container {
       display: flex;
       justify-content: center;
-      align-items: center;
       color: white;
     }
 
     .current-forecast-icon-container {
-      height: 70%;
+      height: 50%;
+      align-items: flex-end;
 
       .current-forecast-icon {
         font-size: 68px;
@@ -161,10 +160,21 @@ p {
     }
 
     .current-forecast-text-container {
+      align-items: center;
       height: 30%;
 
       .current-forecast-text {
         font: 300 26px/26px $body-font;
+      }
+    }
+
+    .current-forecast-extra-text-container {
+      align-items: center;
+      height: 20%;
+
+      .current-forecast-extra-text {
+        font: 300 16px/16px $body-font;
+        padding-bottom: 4px;
       }
     }
   }
@@ -299,7 +309,11 @@ p {
         margin-bottom: 10px;
 
         .location-list-text {
+          display: flex;
+          align-items: center;
           font: 300 20px/20px $title-font;
+          height: 100%;
+          width: 50%;
           color: rgba(248, 249, 249, 0.7);
         }
 
@@ -362,6 +376,192 @@ p {
         .wind-speed-data,
         .uv-index-data {
           text-align: right;
+        }
+      }
+    }
+  }
+}
+
+// MEDIA QUERIES ------------------------------------------------------------------//
+@media screen and (max-width: 1024px) {
+  .current-weather-component {
+    padding: 10px;
+    padding-top: 0;
+
+    .current-temp-container {
+      align-items: center;
+      height: 40%;
+
+      .current-temp {
+        font-size: 100px;
+      }
+    }
+
+    .current-location-info-container {
+      height: 35%;
+      .current-location-container {
+        .current-location {
+          font-size: 40px;
+        }
+      }
+    }
+
+    .current-forecast {
+      height: 40%;
+
+      .current-forecast-icon-container {
+        height: 60%;
+
+        .current-forecast-icon {
+          font-size: 48px;
+        }
+      }
+
+      .current-forecast-text-container {
+        height: 40%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .current-weather-component {
+    width: 45%;
+    height: 45%;
+    flex-flow: column-reverse nowrap;
+    align-items: start;
+    justify-content: flex-start;
+    left: 0;
+    bottom: 0;
+    padding: 0 0 0 20px;
+
+    .current-temp-container {
+      align-items: center;
+      height: 40%;
+      padding: 0;
+
+      .current-temp {
+        font-size: 80px;
+      }
+    }
+
+    .current-location-info-container {
+      height: 40%;
+      margin-top: 20px;
+      width: 60%;
+
+      .current-location-container {
+        .current-location {
+          font-size: 30px;
+        }
+      }
+
+      .current-datetime-container {
+        .current-datetime {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .current-forecast {
+      height: 30%;
+      margin-left: 0;
+
+      .current-forecast-icon-container {
+        height: 60%;
+
+        .current-forecast-icon {
+          font-size: 48px;
+        }
+      }
+
+      .current-forecast-text-container {
+        height: 40%;
+      }
+    }
+  }
+
+  .sidebar {
+    padding: 20px 10px;
+    width: 35%;
+
+    .location-component {
+      .new-location-input-container {
+        .new-location-form {
+          .new-location-submit {
+            top: 20px;
+            height: 40px;
+            width: 40px;
+
+            p {
+              font-size: 20px;
+            }
+          }
+
+          .new-location-input {
+            font-size: 20px;
+
+            &::placeholder {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .current-weather-component {
+    width: 55%;
+    max-height: 50%;
+    padding-right: 20px;
+
+    .current-temp-container,
+    .current-location-info-container,
+    .current-forecast {
+      text-align: center;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .current-location-info-container {
+      height: 35%;
+      margin-top: 0;
+
+      h3 {
+        width: 100%;
+      }
+    }
+  }
+
+  .sidebar {
+    padding: 20px 10px;
+    width: 45%;
+
+    .location-component {
+      .new-location-input-container {
+        .new-location-form {
+          .new-location-submit {
+            top: 30px;
+            height: 25px;
+            width: 25px;
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
+
+            p {
+              font-size: 12px;
+            }
+          }
+
+          .new-location-input {
+            font-size: 16px;
+            width: 90%;
+
+            &::placeholder {
+              font-size: 16px;
+            }
+          }
         }
       }
     }

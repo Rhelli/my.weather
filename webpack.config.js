@@ -2,6 +2,8 @@ const path = require('path');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+
 
 module.exports = {
   mode: 'development',
@@ -24,6 +26,9 @@ module.exports = {
       title: 'my.weather',
     }),
     new PreloadWebpackPlugin(),
+    new Dotenv({
+      path: path.resolve(__dirname, './.env'),
+    }),
   ],
   module: {
     rules: [

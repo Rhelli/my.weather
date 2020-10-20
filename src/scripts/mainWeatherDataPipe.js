@@ -7,24 +7,22 @@ const appendMainWeatherData = (cityName) => {
   const componentDataNames = ['temp', 'cityName', 'datetime', 'icon', 'main', 'description'];
   api.fetchMainWeatherData(cityName)
     .then(weatherObject => {
-      for (let i = 0; i < componentElementIds.length; i++) {
-        const element = document.getElementById(`${componentElementIds[i]}`);
-        const dataName = `${componentDataNames[i]}`;
-        if (element.id === 'currentTemp') {
-          element.innerHTML = `${weatherObject.temp}°`;
-        } else if (element.id === 'currentForecastIcon') {
-          element.classList.add(`wi-owm-${weatherObject.icon}`);
-        } else if (element.id === 'currentForecastExtraText') {
-          element.innerHTML = utility.capitalize(`${weatherObject.description}`);
-        } else {
-          element.innerHTML = `${weatherObject[dataName]}`;
-        }
-      }
+      const currentTemp = document.getElementById('currentTemp');
+      const currentLocation = document.getElementById('currentLocation');
+      const currentDatetime = document.getElementById('currentDatetime');
+      const currentForecast = document.getElementById('currentForecastIcon');
+      const currentForecastText = document.getElementById('currentForecastText');
+      const currentForecastExtraText = document.getElementById('currentForecastExtraText');
+      currentTemp.innerHTML = `${weatherObject.temp}°`;
+      currentLocation.innerHTML = `${weatherObject.cityName}`;
+      currentDatetime.innerHTML = `${weatherObject.datetime}`;
+      currentForecast.classList.add(`wi-owm-${weatherObject.icon}`);
+      currentForecastText.innerHTML = `${weatherObject.main}`;
+      currentForecastExtraText.innerHTML = `${weatherObject.description}`;
     })
 }
 
 const appendWeatherDetailsData = (cityName) => {
-  const listItems = ['feelsLike', 'cloudCover', 'humidity', 'windSpeed', 'uvIndex'];
   api.fetchWeatherDetailsData(cityName)
     .then(weatherDetails => {
       const feelsLike = document.getElementById('feelsLikeData');

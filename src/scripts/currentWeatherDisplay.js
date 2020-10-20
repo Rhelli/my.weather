@@ -13,8 +13,8 @@ const currentLocationInfo = () => {
   const currentLocationContainer = generator.elementGen('div', 'current-location-container', 'currentLocationContainer');
   const currentDatetimeContainer = generator.elementGen('div', 'current-datetime-container', 'currentDatetimeContainer');
   // PLACEHOLDER ------ //
-  const currentLocation = generator.textGen('h3', 'London, UK', 'current-location', 'currentLocation');
-  const currentDatetime = generator.textGen('p', "16:17*-*Tuesday,*13*Oct*'20", 'current-datetime', 'currentDatetime', '*');
+  const currentLocation = generator.textGen('h3', '', 'current-location', 'currentLocation');
+  const currentDatetime = generator.textGen('p', '', 'current-datetime', 'currentDatetime');
   currentLocationContainer.appendChild(currentLocation);
   currentDatetimeContainer.appendChild(currentDatetime);
   container.append(currentLocationContainer, currentDatetimeContainer);
@@ -29,8 +29,8 @@ const currentForecast = () => {
   // PLACEHOLDER ------- //
   const currentForecastIcon = generator.elementGen('i', 'current-forecast-icon', 'currentForecastIcon');
   currentForecastIcon.classList.add('wi')
-  const currentForecastText = generator.textGen('p', 'Sunny', 'current-forecast-text', 'currentForecastText');
-  const currentForecastExtraText = generator.textGen('p', 'Clear Skies and Sunshine', 'current-forecast-extra-text', 'currentForecastExtraText');
+  const currentForecastText = generator.textGen('p', '', 'current-forecast-text', 'currentForecastText');
+  const currentForecastExtraText = generator.textGen('p', '', 'current-forecast-extra-text', 'currentForecastExtraText');
   currentForecastIconContainer.appendChild(currentForecastIcon);
   currentForecastTextContainer.appendChild(currentForecastText);
   currentForecastExtraTextContainer.appendChild(currentForecastExtraText);

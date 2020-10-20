@@ -19,11 +19,27 @@ const saveLocation = () => {
 
 const deleteLocation = (id) => {
   const savedLocations = loadItem('locationStorage');
+  let lastSelected = loadItem('lastSelected');
   if (savedLocations.length > 0) {
+    if (savedLocations[id] === lastSelected[0]) {
+      lastSelected = [];
+      saveItem('lastSelected', lastSelected);
+    }
     savedLocations.splice(id, 1);
     saveItem('locationStorage', savedLocations);
     location.reload();
   }
 }
 
-export { saveItem, loadItem, deleteItem, saveLocation, deleteLocation };
+const lastSelected = (cityName) => {
+  if (loadItem('lastSelected') && loadItem('lastSelected').length > 0) {
+    const citySelection = loadItem('lastSelected');
+    citySelection[0] = cityName;
+    saveItem('lastSelected', citySelection);
+  } else {
+    const newSelection = [cityName];
+    saveItem('lastSelected', newSelection);
+  }
+}
+
+export { saveItem, loadItem, deleteItem, saveLocation, deleteLocation, lastSelected };

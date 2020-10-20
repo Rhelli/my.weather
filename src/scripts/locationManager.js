@@ -1,5 +1,6 @@
 import * as generator from './domTool';
 import * as ls from './locationStorage';
+import { citySelector } from './mainWeatherDataPipe';
 
 const addLocation = () => {
   const container = generator.elementGen('div', 'new-location-input-container', 'newLocationInputContainer');
@@ -45,6 +46,12 @@ const locationList = () => {
       locationDeleteButton.addEventListener('click', (event) => {
         event.preventDefault();
         ls.deleteLocation(i);
+      });
+      locationText.addEventListener('click', (event) => {
+        event.preventDefault();
+        const location = locationText.innerHTML;
+        citySelector(location);
+        ls.lastSelected(location);
       });
       locationDeleteButton.appendChild(locationDeleteButtonText);
       listItem.append(locationText, locationDeleteButton);

@@ -1,5 +1,4 @@
 import format from 'date-fns/format';
-import { newMainWeatherObject, newWeatherDetailsObject } from './weatherObjects';
 
 const fetchCityTimeData = async (lat, lng) => {
   const apiKey = process.env.TIMEZONE_KEY;
@@ -9,11 +8,9 @@ const fetchCityTimeData = async (lat, lng) => {
   return datetime;
 }
 
-const fetchMainWeatherData = async (cityName, unitFormat) => {
+const fetchMainWeatherData = async (cityName) => {
   const apiKey = process.env.OPENWEATHER_KEY;
-  if (!unitFormat) {
-    const unitFormat = 'metric'
-  }
+  const unitFormat = 'metric'
   const apiRequest = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${unitFormat}`, { mode: 'cors' });
   const response = await apiRequest.json();
   const requestedDatetime = await fetchCityTimeData(response.city.coord.lat, response.city.coord.lon);

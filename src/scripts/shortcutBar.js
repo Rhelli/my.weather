@@ -1,0 +1,36 @@
+import * as utility from './domTool';
+
+const refreshButton = () => {
+  const refreshContainer = utility.elementGen('div', 'refresh-button-container', 'refreshButtonContainer');
+  const refreshButton = utility.elementGen('button', 'refresh-button', 'refreshButton');
+  refreshButton.title = 'Update the current forecast.'
+  const refreshIcon = utility.textGen('i', '<i*class="fas*fa-redo-alt"></i>', 'refresh-icon', 'refreshIcon', '*');
+  refreshButton.appendChild(refreshIcon);
+  refreshContainer.appendChild(refreshButton);
+  return refreshContainer;
+}
+
+const deleteMyDataContainer = () => {
+  const deleteMyDataContainer = utility.elementGen('div', 'delete-data-container', 'deleteDataContainer');
+  const deleteMyDataButton = utility.elementGen('button', 'delete-my-data-button', 'deleteMyDataButton');
+  deleteMyDataButton.title = 'Delete all your stored data.'
+  const buttonText = utility.textGen('i', '<i*class="far*fa-trash-alt"></i>', 'delete-my-data-button', 'deleteMyDataButton', '*');
+  deleteMyDataButton.appendChild(buttonText);
+  deleteMyDataContainer.appendChild(deleteMyDataButton);
+  return deleteMyDataContainer;
+}
+
+const tempFormatSwitch = () => {
+  const tempFormatContainer = utility.elementGen('div', 'temp-format-container', 'tempFormatContainer');
+  const tempSwitch = utility.elementGen('div', 'temp-format-switch', 'tempFormatSwitch');
+  tempFormatContainer.appendChild(tempSwitch);
+  return tempFormatContainer;
+}
+
+const shortcutComponent = () => {
+  const shortcutBar = utility.componentBuilder('shortcut-bar', 'shortcutBar', refreshButton(), deleteMyDataContainer(), tempFormatSwitch());
+  return shortcutBar;
+}
+
+export default shortcutComponent;
+

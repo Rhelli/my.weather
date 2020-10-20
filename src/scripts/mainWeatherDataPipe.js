@@ -3,8 +3,6 @@ import * as ls from './locationStorage';
 import * as api from './apiRequest';
 
 const appendMainWeatherData = (cityName) => {
-  const componentElementIds = ['currentTemp', 'currentLocation', 'currentDatetime', 'currentForecastIcon', 'currentForecastText', 'currentForecastExtraText'];
-  const componentDataNames = ['temp', 'cityName', 'datetime', 'icon', 'main', 'description'];
   api.fetchMainWeatherData(cityName)
     .then(weatherObject => {
       const currentTemp = document.getElementById('currentTemp');
@@ -18,7 +16,7 @@ const appendMainWeatherData = (cityName) => {
       currentDatetime.innerHTML = `${weatherObject.datetime}`;
       currentForecast.classList.add(`wi-owm-${weatherObject.icon}`);
       currentForecastText.innerHTML = `${weatherObject.main}`;
-      currentForecastExtraText.innerHTML = `${weatherObject.description}`;
+      currentForecastExtraText.innerHTML = utility.capitalize(`${weatherObject.description}`);
     })
 }
 

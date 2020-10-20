@@ -101,7 +101,6 @@ p {
     z-index: 2;
     padding: 40px 20px 0px 20px;
 
-
     .current-temp {
       font: 400 120px/120px $title-font;
       color: white;
@@ -310,7 +309,11 @@ p {
         margin-bottom: 10px;
 
         .location-list-text {
+          display: flex;
+          align-items: center;
           font: 300 20px/20px $title-font;
+          height: 100%;
+          width: 50%;
           color: rgba(248, 249, 249, 0.7);
         }
 

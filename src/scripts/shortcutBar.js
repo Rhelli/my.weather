@@ -4,6 +4,10 @@ const refreshButton = () => {
   const refreshContainer = utility.elementGen('div', 'refresh-button-container', 'refreshButtonContainer');
   const refreshButton = utility.elementGen('button', 'refresh-button', 'refreshButton');
   refreshButton.title = 'Update the current forecast.'
+  refreshButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    location.reload();
+  });
   const refreshIcon = utility.textGen('i', '<i*class="fas*fa-redo-alt"></i>', 'refresh-icon', 'refreshIcon', '*');
   refreshButton.appendChild(refreshIcon);
   refreshContainer.appendChild(refreshButton);
@@ -14,6 +18,13 @@ const deleteMyDataContainer = () => {
   const deleteMyDataContainer = utility.elementGen('div', 'delete-data-container', 'deleteDataContainer');
   const deleteMyDataButton = utility.elementGen('button', 'delete-my-data-button', 'deleteMyDataButton');
   deleteMyDataButton.title = 'Delete all your stored data.'
+  deleteMyDataButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    localStorage.clear();
+    setTimeout(() => {
+      location.reload();
+    }, 500);
+  })
   const buttonText = utility.textGen('i', '<i*class="far*fa-trash-alt"></i>', 'delete-my-data-icon', 'deleteMyDataIcon', '*');
   deleteMyDataButton.appendChild(buttonText);
   deleteMyDataContainer.appendChild(deleteMyDataButton);

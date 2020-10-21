@@ -17,7 +17,7 @@ import { citySelector } from './mainWeatherDataPipe';
 
 const pageBuilder = () => {
   const mainContainer = generator.elementGen('div', 'main-page-container', 'mainPageContainer');
-  mainContainer.append(backgroundImage(), shortcutComponent(), currentWeatherComponent(), sidebar());
+  mainContainer.append(shortcutComponent(), currentWeatherComponent(), sidebar(), backgroundImage());
   return mainContainer;
 }
 

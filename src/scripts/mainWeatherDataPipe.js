@@ -41,7 +41,7 @@ const citySelector = (cityName) => {
   if (cityName) {
     appendMainWeatherData(cityName);
     appendWeatherDetailsData(cityName);
-  } else if (ls.loadItem('lastSelected').length > 0) {
+  } else if (ls.loadItem('lastSelected') && ls.loadItem('lastSelected').length > 0) {
     city = ls.loadItem('lastSelected');
     appendMainWeatherData(city);
     appendWeatherDetailsData(city);

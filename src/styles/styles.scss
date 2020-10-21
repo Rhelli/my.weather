@@ -69,27 +69,31 @@ p {
   width: 100%;
   padding: 0;
   margin: 0;
-  z-index: 1;
+  //z-index: 1 !important;
 
   .background-image {
     height: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
+    //z-index: 1 !important;
   }
 }
 
 // SHORTCUT BAR COMPONENT ---------------------------------------------------------------//
 .shortcut-bar {
   display: flex;
+  position: absolute;
+  top: 60px;
+  left: 60px;
   justify-items: flex-start;
   align-items: center;
   height: 60px;
   width: 240px;
   background-color: rgba(213, 216, 220, 0.8);
   border-radius: 4px;
-  margin: 60px 0 0 60px;
-  padding: 0 0 0 0;
+  padding: 0;
+  z-index: 10;
 
   .refresh-button-container,
   .delete-data-container {
@@ -97,7 +101,6 @@ p {
     align-items: center;
     height: 60px;
     width: 60px;
-    //margin: 0 10px;
 
     .refresh-button,
     .delete-my-data-button {
@@ -106,6 +109,7 @@ p {
       justify-content: center;
       height: 70%;
       width: 100%;
+      cursor: pointer;
       background-color: transparent;
       outline: none;
       border: none;
@@ -114,6 +118,12 @@ p {
       i {
         color: #606060;
         font-size: 22px;
+        transition: 0.3s;
+
+        &:hover {
+          color: #303030;
+          transition: 0.2s;
+        }
       }
     }
   }
@@ -543,6 +553,47 @@ p {
 }
 
 @media screen and (max-width: 769px) {
+  .shortcut-bar {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 240px;
+    width: 60px;
+    padding: 0 10px;
+    margin: 20px 0 0 20px;
+
+    .refresh-button-container,
+    .delete-data-container {
+      width: 100%;
+      border-bottom: 2px solid rgba(127, 140, 141, 0.4) !important;
+
+      button {
+        border-right: none !important;
+      }
+    }
+
+    .temp-format-container {
+      flex-flow: column nowrap;
+      text-align: center;
+
+      .temp-switch-label {
+        transform: rotate(90deg);
+      }
+
+      .temp-format-c,
+      .temp-format-f {
+        margin: 0;
+      }
+
+      .temp-format-c {
+        margin-bottom: 12px;
+      }
+
+      .temp-format-f {
+        margin-top: 12px;
+      }
+    }
+  }
+
   .current-weather-component {
     width: 45%;
     height: 45%;
@@ -630,6 +681,57 @@ p {
 }
 
 @media screen and (max-width: 568px) {
+  .shortcut-bar {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 220px;
+    width: 40px;
+    padding: 0 10px;
+    margin: 20px 0 0 20px;
+
+    .refresh-icon,
+    .delete-my-data-icon {
+      svg {
+        font-size: 16px;
+      }
+    }
+
+    .refresh-button-container,
+    .delete-data-container {
+      width: 100%;
+      border-right: none !important;
+      border-bottom: 2px solid rgba(127, 140, 141, 0.4) !important;
+
+      button {
+        border-right: none !important;
+      }
+    }
+
+    .temp-format-container {
+      flex-flow: column nowrap;
+      text-align: center;
+
+      .temp-switch-label {
+        transform: rotate(90deg);
+      }
+
+      .temp-format-c,
+      .temp-format-f {
+        margin: 0;
+      }
+
+      .temp-format-c {
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      .temp-format-f {
+        margin-top: 8px;
+        font-size: 18px;
+      }
+    }
+  }
+
   .current-weather-component {
     width: 55%;
     max-height: 50%;
@@ -645,6 +747,8 @@ p {
 
     .current-location-info-container {
       height: 35%;
+      width: 100%;
+      max-width: 100%;
       margin-top: 0;
 
       h3 {

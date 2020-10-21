@@ -4,6 +4,7 @@
 @import './weather-icons.min.css';
 @import '../font/Catamaran/stylesheet.css';
 @import '../font/Roboto/stylesheet.css';
+@import '../font/Merienda/stylesheet.css';
 
 $title-font: 'Catamaran', sans-serif, monospace;
 $body-font: 'Roboto', sans-serif, monospace;
@@ -88,7 +89,7 @@ p {
   background-color: rgba(213, 216, 220, 0.8);
   border-radius: 4px;
   margin: 60px 0 0 60px;
-  padding: 0 0 0 20px;
+  padding: 0 0 0 0;
 
   .refresh-button-container,
   .delete-data-container {
@@ -111,15 +112,87 @@ p {
       border-right: 2px solid rgba(127, 140, 141, 0.4);
 
       i {
+        color: #606060;
         font-size: 22px;
       }
     }
   }
 
   .temp-format-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 70%;
-    width: 90px;
-    border: 1px solid black;
+    width: 120px;
+    z-index: 10;
+    padding-bottom: 2px;
+
+    .temp-format-c,
+    .temp-format-f {
+      font: 700 28px/28px 'Merienda', sans-serif;
+      color: #606060;
+    }
+
+    .temp-format-c {
+      margin-right: 12px;
+    }
+
+    .temp-format-f {
+      margin-left: 12px;
+    }
+
+    .temp-switch-label {
+      display: inline-block;
+      position: relative;
+      width: 30px;
+      height: 28px;
+
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .temp-switch-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #ccc;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+        border-radius: 6px;
+
+        &::before {
+          position: absolute;
+          content: '';
+          height: 20px;
+          width: 10px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          -webkit-transition: 0.4s;
+          transition: 0.4s;
+          border-radius: 4px;
+        }
+      }
+
+      input:checked + .temp-switch-slider {
+        background-color: #2196FB;
+      }
+
+      input:focus + .temp-switch-slider {
+        box-shadow: 0 0 1px #2196FB;
+      }
+
+      input:checked + .temp-switch-slider:before {
+        -webkit-transform: translateX(12px);
+        -ms-transform: translateX(12px);
+        transform: translateX(12px);
+      }
+    }
   }
 }
 

@@ -22,8 +22,14 @@ const deleteMyDataContainer = () => {
 
 const tempFormatSwitch = () => {
   const tempFormatContainer = utility.elementGen('div', 'temp-format-container', 'tempFormatContainer');
-  const tempSwitch = utility.elementGen('div', 'temp-format-switch', 'tempFormatSwitch');
-  tempFormatContainer.appendChild(tempSwitch);
+  const fahrenheit = utility.textGen('p', 'F', 'temp-format-f');
+  const celsius = utility.textGen('p', 'C', 'temp-format-c');
+  const tempSwitch = utility.elementGen('label', 'temp-switch-label', 'tempSwitchLabel');
+  const checkbox = utility.elementGen('input', 'temp-switch-input', 'tempSwitchInput');
+  const slider = utility.elementGen('span', 'temp-switch-slider');
+  checkbox.type = 'checkbox';
+  tempSwitch.append(checkbox, slider);
+  tempFormatContainer.append(celsius, tempSwitch, fahrenheit);
   return tempFormatContainer;
 }
 

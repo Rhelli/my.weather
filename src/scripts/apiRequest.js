@@ -1,4 +1,5 @@
 import format from 'date-fns/format';
+import * as ls from './locationStorage';
 
 const fetchCityTimeData = async (lat, lng) => {
   const apiKey = process.env.TIMEZONE_KEY;
@@ -10,7 +11,7 @@ const fetchCityTimeData = async (lat, lng) => {
 
 const fetchMainWeatherData = async (cityName) => {
   const apiKey = process.env.OPENWEATHER_KEY;
-  const unitFormat = 'metric'
+  const unitFormat = ls.loadItem('tempSwitch')[0];
   const apiRequest = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${unitFormat}`, { mode: 'cors' });
   const response = await apiRequest.json();
   const requestedDatetime = await fetchCityTimeData(response.city.coord.lat, response.city.coord.lon);
@@ -39,7 +40,7 @@ const fetchUvIndexData = async (lat, lon) => {
 
 const fetchWeatherDetailsData = async (cityName) => {
   const apiKey = process.env.OPENWEATHER_KEY;
-  const unitFormat = 'metric';
+  const unitFormat = ls.loadItem('tempSwitch')[0];
   const apiRequest = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${unitFormat}`, { mode: 'cors' });
   const response = await apiRequest.json();
   const uvIndex = await fetchUvIndexData(response.city.coord.lat, response.city.coord.lon);

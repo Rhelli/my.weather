@@ -140,7 +140,6 @@ p {
     .temp-format-c,
     .temp-format-f {
       font: 700 28px/28px 'Merienda', sans-serif;
-      color: #606060;
     }
 
     .temp-format-c {
@@ -204,6 +203,15 @@ p {
       }
     }
   }
+}
+
+// TEMPERATURE LABEL COLOR CHANGES ---------------------------------------------------------//
+.hightlighted {
+  color: #101010;
+}
+
+.unhighlighted {
+  color: #606060;
 }
 
 // CURRENT WEATHER COMPONENT -------------------------------------------------------//
@@ -453,6 +461,7 @@ p {
           outline: none;
           color: rgba(248, 249, 249, 0.8);
           border: none;
+          cursor: pointer;
 
           .location-delete-button-text {
             font-size: 20px;
@@ -559,7 +568,8 @@ p {
     height: 240px;
     width: 60px;
     padding: 0 10px;
-    margin: 20px 0 0 20px;
+    top: 10px;
+    left: 10px;
 
     .refresh-button-container,
     .delete-data-container {
@@ -687,7 +697,8 @@ p {
     height: 220px;
     width: 40px;
     padding: 0 10px;
-    margin: 20px 0 0 20px;
+    top: 0;
+    left: 0;
 
     .refresh-icon,
     .delete-my-data-icon {

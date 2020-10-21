@@ -10,8 +10,10 @@ import { citySelector } from './mainWeatherDataPipe';
   if (!ls.loadItem('locationStorage') || ls.loadItem('locationStorage').length < 1) {
     const allLocations = [];
     ls.saveItem('locationStorage', allLocations);
-  } else {
-    return
+  }
+  if (!ls.loadItem('tempSwitch') || ls.loadItem('tempSwitch').length < 1) {
+    const tempFormat = ['metric'];
+    ls.saveItem('tempSwitch', tempFormat);
   }
 })();
 

@@ -11,8 +11,6 @@ const backgroundBuilder = (weatherObject) => {
   const backgroundImage = document.getElementById('backgroundImageContainer');
   const datetime = `${weatherObject.datetime}`;
   const weather = `${weatherObject.description}`;
-  const dayTest = RegExp('AM');
-  const nightTest = RegExp('PM');
   const weatherTypes = [
     RegExp('clouds'),
     RegExp('gusts'),
@@ -28,13 +26,16 @@ const backgroundBuilder = (weatherObject) => {
     RegExp('sunny'),
     RegExp('clear'),
   ];
-  if (dayTest.test(datetime)) {
+  if (weatherObject.dayOrNight === 'd') {
     for (let i = 0; i < weatherTypes.length; i++) {
       if (weatherTypes[i].test(weather)) {
         backgroundImage.style.backgroundImage = `url(../src/assets/img/backgrounds/day/${i}.jpg)`;
       }
     }
-  } else if (nightTest.test(datetime)) {
+    if (weatherTypes[12].test(weather)) {
+      backgroundImage.style.backgroundImage = `url(../src/assets/img/backgrounds/day/${11}.jpg)`;
+    }
+  } else if (weatherObject.dayOrNight === 'n') {
     for (let i = 0; i < weatherTypes.length; i++) {
       if (weatherTypes[i].test(weather)) {
         backgroundImage.style.backgroundImage = `url(../src/assets/img/backgrounds/night/${i}.jpg)`;

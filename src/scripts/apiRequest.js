@@ -1,5 +1,6 @@
 import format from 'date-fns/format';
 import * as ls from './locationStorage';
+import popup from './errorMessage';
 
 const fetchCityTimeData = async (lat, lng) => {
   const apiKey = process.env.TIMEZONE_KEY;
@@ -15,6 +16,12 @@ const fetchMainWeatherData = async (cityName) => {
   const apiRequest = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${unitFormat}`, { mode: 'cors' });
   const response = await apiRequest.json();
   const requestedDatetime = await fetchCityTimeData(response.city.coord.lat, response.city.coord.lon);
+  if (response.cod === '404') {
+    const main = document.getElementById('mainPageContainer');
+    if (!document.getElementById('errorPopupContainer')) {
+      main.appendChild(popup(response.message));
+    }
+  }
   return {
     temp: Math.round(response.list[0].main.temp * 1),
     cityName: response.city.name,
@@ -25,6 +32,7 @@ const fetchMainWeatherData = async (cityName) => {
     description: response.list[0].weather[0].description,
     lat: response.city.coord.lat,
     lon: response.city.coord.lon,
+    dayOrNight: response.list[0].sys.pod,
   }
 }
 

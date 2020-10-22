@@ -49,11 +49,6 @@ const uvConverter = (value) => {
   }
 }
 
-const dayOrNight = (unparsedTime) => {
-  let hours = parseInt(unparsed.split('').slice(0, 2));
-
-}
-
 const componentBuilder = (className, idName, ...containers) => {
   const mainContainer = elementGen('div', className, idName);
   containers.forEach(container => {

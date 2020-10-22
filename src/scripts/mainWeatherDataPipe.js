@@ -1,6 +1,7 @@
 import * as utility from './domTool';
 import * as ls from './locationStorage';
 import * as api from './apiRequest';
+import popup from './errorMessage';
 import { backgroundBuilder } from './backgroundManager';
 
 const appendMainWeatherData = (cityName) => {
@@ -35,6 +36,9 @@ const appendWeatherDetailsData = (cityName) => {
       humidity.innerHTML = `${weatherDetails.humidity} %`;
       windSpeed.innerHTML = `${weatherDetails.windSpeed} M/s`;
       uvIndex.innerHTML = utility.uvConverter(`${weatherDetails.uvIndex}`);
+    }).catch((errorMessage) => {
+      const mainContainer = document.getElementById('mainPageContainer');
+      mainContainer.appendChild(popup(errorMessage));
     })
 }
 

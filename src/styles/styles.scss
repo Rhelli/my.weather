@@ -6,6 +6,28 @@
 @import '../font/Roboto/stylesheet.css';
 @import '../font/Merienda/stylesheet.css';
 
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 $title-font: 'Catamaran', sans-serif, monospace;
 $body-font: 'Roboto', sans-serif, monospace;
 
@@ -70,16 +92,8 @@ p {
   padding: 0;
   margin: 0;
   background-size: cover;
-
-  .background-image {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    image-rendering: auto;
-    background-size: cover;
-    display: none;
-  }
+  transition: 0.2s ease;
+  background-image: url('../assets/img/default.jpg');
 }
 
 // SHORTCUT BAR COMPONENT ---------------------------------------------------------------//
@@ -91,11 +105,14 @@ p {
   justify-items: flex-start;
   align-items: center;
   height: 60px;
-  width: 240px;
-  background-color: rgba(213, 216, 220, 0.8);
-  border-radius: 4px;
+  width: 250px;
+  background-color: rgba(213, 216, 220, 0.9);
+  border-radius: 40px;
   padding: 0;
   z-index: 10;
+  -webkit-box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
+  -moz-box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
+  box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
 
   .refresh-button-container,
   .delete-data-container {
@@ -125,6 +142,14 @@ p {
         &:hover {
           color: #303030;
           transition: 0.2s;
+        }
+      }
+    }
+
+    .delete-my-data-button {
+      i {
+        &:hover {
+          color: #E53935;
         }
       }
     }
@@ -171,7 +196,7 @@ p {
         left: 0;
         bottom: 0;
         right: 0;
-        background-color: #ccc;
+        background-color: #808080;
         -webkit-transition: 0.4s;
         transition: 0.4s;
         border-radius: 6px;
@@ -222,7 +247,7 @@ p {
   flex-flow: row nowrap;
   justify-content: start;
   align-items: flex-end;
-  height: 35%;
+  height: 50%;
   width: 70%;
   position: absolute;
   bottom: 0;
@@ -234,14 +259,14 @@ p {
   .current-temp-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     height: 60%;
     width: auto;
     z-index: 2;
-    padding: 40px 20px 0px 20px;
+    padding: 40px 20px 0 20px;
 
     .current-temp {
-      font: 400 120px/120px $title-font;
+      font: 400 140px/120px $title-font;
       color: white;
     }
   }
@@ -249,6 +274,7 @@ p {
   .current-location-info-container {
     display: flex;
     flex-flow: column nowrap;
+    justify-content: flex-end;
     height: 40%;
     width: auto;
     max-width: 50%;
@@ -256,7 +282,6 @@ p {
     .current-location-container,
     .current-datetime-container {
       display: flex;
-      height: 50%;
       width: 100%;
       justify-content: start;
       align-items: flex-end;
@@ -277,7 +302,7 @@ p {
   .current-forecast {
     display: flex;
     flex-flow: column nowrap;
-    height: 80%;
+    height: 50%;
     width: auto;
     margin-left: 40px;
 
@@ -286,6 +311,7 @@ p {
     .current-forecast-extra-text-container {
       display: flex;
       justify-content: center;
+      text-align: center;
       color: white;
     }
 
@@ -467,9 +493,18 @@ p {
           color: rgba(248, 249, 249, 0.8);
           border: none;
           cursor: pointer;
+          transition: 0.2s;
 
           .location-delete-button-text {
             font-size: 20px;
+          }
+
+          &:hover {
+            color: #E53935;
+            text-shadow: #EF9A9A 0px 0px 10px;
+            transition: 0.4s;
+            -webkit-animation: rotate-center 0.4s ease-in-out both;
+            animation: rotate-center 0.4s ease-in-out both;
           }
         }
       }
@@ -510,6 +545,7 @@ p {
           width: 50%;
           font: 300 16px/16px $body-font;
           color: white;
+          text-align: left;
         }
 
         .feels-like-data,
@@ -524,6 +560,73 @@ p {
   }
 }
 
+// ERROR POPUP -=-=-------------------------------------------------------------------//
+.error-popup-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: column nowrap;
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: auto;
+  width: 400px;
+  border-radius: 8px;
+  border: 1px solid #909090;
+  z-index: 100;
+  background-color: rgba(213, 216, 220, 0.9);
+  -webkit-box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
+  -moz-box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
+  box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
+  padding: 20px;
+
+  .popup-close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+
+      svg {
+        font-size: 20px;
+        transform: rotate(45deg);
+      }
+  }
+
+  .popup-error-title {
+    width: auto;
+    height: auto;
+    font: 700 62px/62px $title-font;
+    text-align: center;
+    margin-top: 20px;
+    color: #E53935;
+    text-shadow: black 2px 2px 10px;
+    border-bottom: 6px solid white;
+  }
+
+  .error-message-container {
+    height: auto;
+    width: 100%;
+    font: 400 20px/20px $body-font;
+    margin: 20px 0;
+
+    .error-message-intro {
+      text-align: center;
+      font: 500 24px/24px $body-font;
+      margin-bottom: 20px;
+    }
+
+    .error-message-body {
+      font: 300 20px/20px $body-font;
+    }
+  }
+}
+
 // MEDIA QUERIES ------------------------------------------------------------------//
 @media screen and (max-width: 1024px) {
   .current-weather-component {
@@ -531,7 +634,7 @@ p {
     padding-top: 0;
 
     .current-temp-container {
-      align-items: center;
+      align-items: flex-end;
       height: 40%;
 
       .current-temp {
@@ -541,9 +644,11 @@ p {
 
     .current-location-info-container {
       height: 35%;
+
       .current-location-container {
         .current-location {
           font-size: 40px;
+          line-height: 40px;
         }
       }
     }
@@ -553,14 +658,15 @@ p {
 
       .current-forecast-icon-container {
         height: 60%;
+        align-items: center;
 
         .current-forecast-icon {
-          font-size: 48px;
+          font-size: 62px;
         }
       }
 
       .current-forecast-text-container {
-        height: 40%;
+        height: 30%;
       }
     }
   }
@@ -611,7 +717,7 @@ p {
 
   .current-weather-component {
     width: 45%;
-    height: 45%;
+    height: auto;
     flex-flow: column-reverse nowrap;
     align-items: start;
     justify-content: flex-start;
@@ -648,7 +754,7 @@ p {
     }
 
     .current-forecast {
-      height: 30%;
+      height: auto;
       margin-left: 0;
 
       .current-forecast-icon-container {
@@ -750,8 +856,10 @@ p {
 
   .current-weather-component {
     width: 55%;
-    max-height: 50%;
+    max-height: none;
+    height: 60%;
     padding-right: 20px;
+    align-items: flex-end;
 
     .current-temp-container,
     .current-location-info-container,
@@ -759,6 +867,7 @@ p {
       text-align: center;
       width: 100%;
       justify-content: center;
+      height: auto;
     }
 
     .current-location-info-container {
@@ -769,6 +878,7 @@ p {
 
       h3 {
         width: 100%;
+        line-height: 80px;
       }
     }
   }

@@ -41,6 +41,9 @@ const backgroundBuilder = (weatherObject) => {
         backgroundImage.style.backgroundImage = `url(../src/assets/img/backgrounds/night/${i}.jpg)`;
       }
     }
+    if (weatherTypes[12].test(weather)) {
+      backgroundImage.style.backgroundImage = `url(../src/assets/img/backgrounds/night/${11}.jpg)`;
+    }
   }
 }
 

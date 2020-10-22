@@ -573,7 +573,7 @@ p {
   height: auto;
   width: 400px;
   border-radius: 8px;
-  border: 1px solid #909090;
+  border: 1px solid #606060;
   z-index: 100;
   background-color: rgba(213, 216, 220, 0.9);
   -webkit-box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
@@ -591,10 +591,25 @@ p {
     top: 0;
     right: 0;
     padding: 0;
+    border: none;
+    outline: none;
+    background-color: rgb(253, 253, 253);
+    border-bottom-left-radius: 1px;
+    border-top-right-radius: 8px;
+    box-shadow: -1px 1px 3px #909090;
 
       svg {
+        color: #909090;
         font-size: 20px;
         transform: rotate(45deg);
+        transition: 0.3s;
+      }
+
+      &:hover {
+        svg {
+          color: #E53935;
+          transition: 0.2s;
+        }
       }
   }
 
@@ -622,7 +637,11 @@ p {
     }
 
     .error-message-body {
-      font: 300 20px/20px $body-font;
+      font: 400 18px/24px $body-font;
+      background-color: rgb(138, 138, 138, 0.4);
+      padding: 20px 10px;
+      text-align: center;
+      border-radius: 10px;
     }
   }
 }

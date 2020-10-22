@@ -1,6 +1,7 @@
 import * as utility from './domTool';
 import * as ls from './locationStorage';
 import * as api from './apiRequest';
+import { backgroundBuilder } from './backgroundManager';
 
 const appendMainWeatherData = (cityName) => {
   api.fetchMainWeatherData(cityName)
@@ -17,6 +18,7 @@ const appendMainWeatherData = (cityName) => {
       currentForecast.classList.add(`wi-owm-${weatherObject.icon}`);
       currentForecastText.innerHTML = `${weatherObject.main}`;
       currentForecastExtraText.innerHTML = utility.capitalize(`${weatherObject.description}`);
+      backgroundBuilder(weatherObject);
     })
 }
 

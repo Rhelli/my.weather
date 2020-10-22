@@ -19,7 +19,6 @@ const fetchMainWeatherData = async (cityName) => {
     temp: Math.round(response.list[0].main.temp * 1),
     cityName: response.city.name,
     country: response.city.country,
-    datetime: requestedDatetime,
     datetime: format(new Date(requestedDatetime), 'p - cccc io, MMM yy'),
     icon: response.list[0].weather[0].id,
     main: response.list[0].weather[0].main,

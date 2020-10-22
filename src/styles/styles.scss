@@ -69,14 +69,16 @@ p {
   width: 100%;
   padding: 0;
   margin: 0;
-  //z-index: 1 !important;
+  background-size: cover;
 
   .background-image {
     height: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
-    //z-index: 1 !important;
+    image-rendering: auto;
+    background-size: cover;
+    display: none;
   }
 }
 
@@ -227,6 +229,7 @@ p {
   left: 0;
   padding: 0 0 60px 40px;
   z-index: 2;
+  text-shadow: black 2px 2px 10px;
 
   .current-temp-container {
     display: flex;
@@ -333,6 +336,7 @@ p {
   -moz-box-shadow: -2px 0px 5px 0px rgba(40,41,41,0.29);
   box-shadow: -2px 0px 5px 0px rgba(40,41,41,0.29);
   padding: 30px;
+  text-shadow: black 1px 1px 5px;
 
   .location-component {
     display: flex;
@@ -361,8 +365,9 @@ p {
           color: white;
 
           &::placeholder {
-            color: rgba(234, 237, 237, 0.6);
+            color: rgba(234, 237, 237, 0.9);
             font-weight: 400;
+            text-shadow: black 2px 2px 10px;
           }
 
           &:focus {
@@ -446,10 +451,10 @@ p {
         .location-list-text {
           display: flex;
           align-items: center;
-          font: 300 20px/20px $title-font;
+          font: 400 20px/20px $title-font;
           height: 100%;
           width: 50%;
-          color: rgba(248, 249, 249, 0.7);
+          color: white;
           cursor: pointer;
         }
 
@@ -504,7 +509,7 @@ p {
         p {
           width: 50%;
           font: 300 16px/16px $body-font;
-          color: rgba(248, 249, 249, 0.7);
+          color: white;
         }
 
         .feels-like-data,

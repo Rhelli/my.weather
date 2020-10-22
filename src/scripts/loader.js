@@ -1,6 +1,6 @@
 import * as generator from './domTool';
 import * as ls from './locationStorage';
-import backgroundImage from './backgroundManager';
+import { imageContainer } from './backgroundManager';
 import shortcutComponent from './shortcutBar';
 import currentWeatherComponent from './currentWeatherDisplay';
 import sidebar from './sidebar';
@@ -19,7 +19,7 @@ import { citySelector } from './mainWeatherDataPipe';
 
 const pageBuilder = () => {
   const mainContainer = generator.elementGen('div', 'main-page-container', 'mainPageContainer');
-  mainContainer.append(shortcutComponent(), currentWeatherComponent(), sidebar(), backgroundImage());
+  mainContainer.append(shortcutComponent(), currentWeatherComponent(), sidebar(), imageContainer());
   return mainContainer;
 }
 

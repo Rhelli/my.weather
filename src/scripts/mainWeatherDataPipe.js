@@ -1,10 +1,10 @@
 import * as utility from './domTool';
 import * as ls from './locationStorage';
 import * as api from './apiRequest';
+import popup from './errorMessage';
+import { backgroundBuilder } from './backgroundManager';
 
 const appendMainWeatherData = (cityName) => {
-  const componentElementIds = ['currentTemp', 'currentLocation', 'currentDatetime', 'currentForecastIcon', 'currentForecastText', 'currentForecastExtraText'];
-  const componentDataNames = ['temp', 'cityName', 'datetime', 'icon', 'main', 'description'];
   api.fetchMainWeatherData(cityName)
     .then(weatherObject => {
       const currentTemp = document.getElementById('currentTemp');
@@ -18,7 +18,8 @@ const appendMainWeatherData = (cityName) => {
       currentDatetime.innerHTML = `${weatherObject.datetime}`;
       currentForecast.classList.add(`wi-owm-${weatherObject.icon}`);
       currentForecastText.innerHTML = `${weatherObject.main}`;
-      currentForecastExtraText.innerHTML = `${weatherObject.description}`;
+      currentForecastExtraText.innerHTML = utility.capitalize(`${weatherObject.description}`);
+      backgroundBuilder(weatherObject);
     })
 }
 
@@ -35,6 +36,9 @@ const appendWeatherDetailsData = (cityName) => {
       humidity.innerHTML = `${weatherDetails.humidity} %`;
       windSpeed.innerHTML = `${weatherDetails.windSpeed} M/s`;
       uvIndex.innerHTML = utility.uvConverter(`${weatherDetails.uvIndex}`);
+    }).catch((errorMessage) => {
+      const mainContainer = document.getElementById('mainPageContainer');
+      mainContainer.appendChild(popup(errorMessage));
     })
 }
 
@@ -43,7 +47,7 @@ const citySelector = (cityName) => {
   if (cityName) {
     appendMainWeatherData(cityName);
     appendWeatherDetailsData(cityName);
-  } else if (ls.loadItem('lastSelected').length > 0) {
+  } else if (ls.loadItem('lastSelected') && ls.loadItem('lastSelected').length > 0) {
     city = ls.loadItem('lastSelected');
     appendMainWeatherData(city);
     appendWeatherDetailsData(city);

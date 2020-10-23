@@ -1,0 +1,650 @@
+@import url(c:\Users\Rory\Desktop\Programming\Microverse\Main Curriculum\Javascript\API-Weather-App\src\styles\weather-icons-wind.css);
+@import url(c:\Users\Rory\Desktop\Programming\Microverse\Main Curriculum\Javascript\API-Weather-App\src\styles\weather-icons-wind.min.css);
+@import url(c:\Users\Rory\Desktop\Programming\Microverse\Main Curriculum\Javascript\API-Weather-App\src\styles\weather-icons.css);
+@import url(c:\Users\Rory\Desktop\Programming\Microverse\Main Curriculum\Javascript\API-Weather-App\src\styles\weather-icons.min.css);
+@import url(c:\Users\Rory\Desktop\Programming\Microverse\Main Curriculum\Javascript\API-Weather-App\src\font\Catamaran\stylesheet.css);
+@import url(c:\Users\Rory\Desktop\Programming\Microverse\Main Curriculum\Javascript\API-Weather-App\src\font\Roboto\stylesheet.css);
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: darkred;
+  font: 400 16px/16px "Roboto", sans-serif, monospace;
+  color: #303030;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.main-page-container {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.background-image-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+}
+
+.background-image-container .background-image {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.current-weather-component {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 35%;
+  width: 70%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0 0 60px 40px;
+  z-index: 2;
+}
+
+.current-weather-component .current-temp-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60%;
+  width: auto;
+  z-index: 2;
+  padding: 40px 20px 0px 20px;
+}
+
+.current-weather-component .current-temp-container .current-temp {
+  font: 400 120px/120px "Catamaran", sans-serif, monospace;
+  color: white;
+}
+
+.current-weather-component .current-location-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  height: 40%;
+  width: auto;
+  max-width: 50%;
+}
+
+.current-weather-component .current-location-info-container .current-location-container,
+.current-weather-component .current-location-info-container .current-datetime-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50%;
+  width: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.current-weather-component .current-location-info-container .current-location-container .current-location,
+.current-weather-component .current-location-info-container .current-datetime-container .current-location {
+  font: 400 60px/60px "Roboto", sans-serif, monospace;
+  color: white;
+}
+
+.current-weather-component .current-location-info-container .current-location-container .current-datetime,
+.current-weather-component .current-location-info-container .current-datetime-container .current-datetime {
+  font: 300 26px/26px "Roboto", sans-serif, monospace;
+  color: white;
+  margin: 10px 0;
+}
+
+.current-weather-component .current-forecast {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  height: 80%;
+  width: auto;
+  margin-left: 40px;
+}
+
+.current-weather-component .current-forecast .current-forecast-icon-container,
+.current-weather-component .current-forecast .current-forecast-text-container,
+.current-weather-component .current-forecast .current-forecast-extra-text-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+}
+
+.current-weather-component .current-forecast .current-forecast-icon-container {
+  height: 50%;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.current-weather-component .current-forecast .current-forecast-icon-container .current-forecast-icon {
+  font-size: 68px;
+}
+
+.current-weather-component .current-forecast .current-forecast-text-container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30%;
+}
+
+.current-weather-component .current-forecast .current-forecast-text-container .current-forecast-text {
+  font: 300 26px/26px "Roboto", sans-serif, monospace;
+}
+
+.current-weather-component .current-forecast .current-forecast-extra-text-container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 20%;
+}
+
+.current-weather-component .current-forecast .current-forecast-extra-text-container .current-forecast-extra-text {
+  font: 300 16px/16px "Roboto", sans-serif, monospace;
+  padding-bottom: 4px;
+}
+
+.sidebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 30%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: url("../assets/img/textures/diagonales-decalees.png"), rgba(174, 182, 191, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  z-index: 2;
+  -webkit-box-shadow: -2px 0px 5px 0px rgba(40, 41, 41, 0.29);
+  box-shadow: -2px 0px 5px 0px rgba(40, 41, 41, 0.29);
+  padding: 30px;
+}
+
+.sidebar .location-component {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  width: 100%;
+  height: 60%;
+}
+
+.sidebar .location-component .new-location-input-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 10%;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.sidebar .location-component .new-location-input-container .new-location-form {
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar .location-component .new-location-input-container .new-location-form .new-location-input {
+  width: 80%;
+  height: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid rgba(174, 182, 191, 0.5);
+  font: 300 22px/22px "Catamaran", sans-serif, monospace;
+  color: white;
+}
+
+.sidebar .location-component .new-location-input-container .new-location-form .new-location-input::-webkit-input-placeholder {
+  color: rgba(234, 237, 237, 0.6);
+  font-weight: 400;
+}
+
+.sidebar .location-component .new-location-input-container .new-location-form .new-location-input:-ms-input-placeholder {
+  color: rgba(234, 237, 237, 0.6);
+  font-weight: 400;
+}
+
+.sidebar .location-component .new-location-input-container .new-location-form .new-location-input::-ms-input-placeholder {
+  color: rgba(234, 237, 237, 0.6);
+  font-weight: 400;
+}
+
+.sidebar .location-component .new-location-input-container .new-location-form .new-location-input::placeholder {
+  color: rgba(234, 237, 237, 0.6);
+  font-weight: 400;
+}
+
+.sidebar .location-component .new-location-input-container .new-location-form .new-location-input:focus {
+  background-color: transparent;
+  outline: none;
+}
+
+.sidebar .location-component .new-location-input-container .new-location-form .new-location-input:-webkit-autofill, .sidebar .location-component .new-location-input-container .new-location-form .new-location-input:-webkit-autofill:hover, .sidebar .location-component .new-location-input-container .new-location-form .new-location-input:-webkit-autofill:focus, .sidebar .location-component .new-location-input-container .new-location-form .new-location-input:-webkit-autofill:active {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(1, 1, 1, 0) inset;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.sidebar .location-component .new-location-input-container .new-location-form .new-location-submit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 80px;
+  width: 80px;
+  background: rgba(248, 249, 249, 0.7);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  border: none;
+  outline: none;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  border-bottom-left-radius: 2px;
+}
+
+.sidebar .location-component .new-location-input-container .new-location-form .new-location-submit p {
+  font-size: 26px;
+  font-weight: 300;
+  color: #2C3E50;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+
+.sidebar .location-component .new-location-input-container .new-location-form .new-location-submit:hover {
+  background-color: #FDFEFE;
+  -webkit-transition-duration: 0.15s;
+          transition-duration: 0.15s;
+}
+
+.sidebar .location-component .new-location-input-container .new-location-form .new-location-submit:hover p {
+  color: #2980B9;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+.sidebar .location-component .location-list {
+  display: block;
+  width: 100%;
+  height: 84%;
+  padding: 20px 0 30px 0;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.sidebar .location-component .location-list::-webkit-scrollbar, .sidebar .location-component .location-list::-webkit-scrollbar-track {
+  width: 5px;
+  height: 50%;
+  background-color: rgba(248, 249, 249, 0.2);
+}
+
+.sidebar .location-component .location-list::-webkit-scrollbar-thumb {
+  background: rgba(248, 249, 249, 0.6);
+}
+
+.sidebar .location-component .location-list::-webkit-scrollbar-thumb:hover {
+  background: #f8f9f9;
+}
+
+.sidebar .location-component .location-list .location-list-item-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.sidebar .location-component .location-list .location-list-item-container .location-list-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font: 300 20px/20px "Catamaran", sans-serif, monospace;
+  height: 100%;
+  width: 50%;
+  color: rgba(248, 249, 249, 0.7);
+  cursor: pointer;
+}
+
+.sidebar .location-component .location-list .location-list-item-container .location-list-button {
+  height: 40px;
+  width: 40px;
+  margin-left: auto;
+  background-color: transparent;
+  outline: none;
+  color: rgba(248, 249, 249, 0.8);
+  border: none;
+}
+
+.sidebar .location-component .location-list .location-list-item-container .location-list-button .location-delete-button-text {
+  font-size: 20px;
+}
+
+.sidebar .weather-details-component {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 40%;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.sidebar .weather-details-component .weather-details-subtitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 15%;
+  width: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidebar .weather-details-component .weather-details-subtitle .weather-details-text {
+  font: 400 24px/24px "Catamaran", sans-serif, monospace;
+  color: white;
+}
+
+.sidebar .weather-details-component .weather-details-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 85%;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.sidebar .weather-details-component .weather-details-list div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 20%;
+}
+
+.sidebar .weather-details-component .weather-details-list div p {
+  width: 50%;
+  font: 300 16px/16px "Roboto", sans-serif, monospace;
+  color: rgba(248, 249, 249, 0.7);
+}
+
+.sidebar .weather-details-component .weather-details-list div .feels-like-data,
+.sidebar .weather-details-component .weather-details-list div .cloud-cover-data,
+.sidebar .weather-details-component .weather-details-list div .humidity-data,
+.sidebar .weather-details-component .weather-details-list div .wind-speed-data,
+.sidebar .weather-details-component .weather-details-list div .uv-index-data {
+  text-align: right;
+}
+
+@media screen and (max-width: 1024px) {
+  .current-weather-component {
+    padding: 10px;
+    padding-top: 0;
+  }
+  .current-weather-component .current-temp-container {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 40%;
+  }
+  .current-weather-component .current-temp-container .current-temp {
+    font-size: 100px;
+  }
+  .current-weather-component .current-location-info-container {
+    height: 35%;
+  }
+  .current-weather-component .current-location-info-container .current-location-container .current-location {
+    font-size: 40px;
+  }
+  .current-weather-component .current-forecast {
+    height: 40%;
+  }
+  .current-weather-component .current-forecast .current-forecast-icon-container {
+    height: 60%;
+  }
+  .current-weather-component .current-forecast .current-forecast-icon-container .current-forecast-icon {
+    font-size: 48px;
+  }
+  .current-weather-component .current-forecast .current-forecast-text-container {
+    height: 40%;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .current-weather-component {
+    width: 45%;
+    height: 45%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: column-reverse nowrap;
+            flex-flow: column-reverse nowrap;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    left: 0;
+    bottom: 0;
+    padding: 0 0 0 20px;
+  }
+  .current-weather-component .current-temp-container {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 40%;
+    padding: 0;
+  }
+  .current-weather-component .current-temp-container .current-temp {
+    font-size: 80px;
+  }
+  .current-weather-component .current-location-info-container {
+    height: 40%;
+    margin-top: 20px;
+    width: 60%;
+  }
+  .current-weather-component .current-location-info-container .current-location-container .current-location {
+    font-size: 30px;
+  }
+  .current-weather-component .current-location-info-container .current-datetime-container .current-datetime {
+    font-size: 20px;
+  }
+  .current-weather-component .current-forecast {
+    height: 30%;
+    margin-left: 0;
+  }
+  .current-weather-component .current-forecast .current-forecast-icon-container {
+    height: 60%;
+  }
+  .current-weather-component .current-forecast .current-forecast-icon-container .current-forecast-icon {
+    font-size: 48px;
+  }
+  .current-weather-component .current-forecast .current-forecast-text-container {
+    height: 40%;
+  }
+  .sidebar {
+    padding: 20px 10px;
+    width: 35%;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-submit {
+    top: 20px;
+    height: 40px;
+    width: 40px;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-submit p {
+    font-size: 20px;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-input {
+    font-size: 20px;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-input::-webkit-input-placeholder {
+    font-size: 18px;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-input:-ms-input-placeholder {
+    font-size: 18px;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-input::-ms-input-placeholder {
+    font-size: 18px;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-input::placeholder {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .current-weather-component {
+    width: 55%;
+    max-height: 50%;
+    padding-right: 20px;
+  }
+  .current-weather-component .current-temp-container,
+  .current-weather-component .current-location-info-container,
+  .current-weather-component .current-forecast {
+    text-align: center;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .current-weather-component .current-location-info-container {
+    height: 35%;
+    margin-top: 0;
+  }
+  .current-weather-component .current-location-info-container h3 {
+    width: 100%;
+  }
+  .sidebar {
+    padding: 20px 10px;
+    width: 45%;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-submit {
+    top: 30px;
+    height: 25px;
+    width: 25px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-submit p {
+    font-size: 12px;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-input {
+    font-size: 16px;
+    width: 90%;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-input::-webkit-input-placeholder {
+    font-size: 16px;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-input:-ms-input-placeholder {
+    font-size: 16px;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-input::-ms-input-placeholder {
+    font-size: 16px;
+  }
+  .sidebar .location-component .new-location-input-container .new-location-form .new-location-input::placeholder {
+    font-size: 16px;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

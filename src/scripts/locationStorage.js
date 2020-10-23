@@ -31,6 +31,22 @@ const deleteLocation = (id) => {
   }
 }
 
+const deleteError = () => {
+  if (loadItem('lastSelected') && loadItem('lastSelected').length > 0) {
+    let error = loadItem('lastSelected')[0];
+    const locationStorage = loadItem('locationStorage');
+    for (let i = 0; i < locationStorage.length; i++) {
+      if (locationStorage[i] === `${error}`) {
+        locationStorage.pop(i);
+        saveItem('locationStorage', locationStorage);
+      }
+    }
+    error = [];
+    saveItem('lastSelected', error);
+  }
+  location.reload();
+}
+
 const lastSelected = (cityName) => {
   if (loadItem('lastSelected') && loadItem('lastSelected').length > 0) {
     const citySelection = loadItem('lastSelected');
@@ -42,4 +58,4 @@ const lastSelected = (cityName) => {
   }
 }
 
-export { saveItem, loadItem, deleteItem, saveLocation, deleteLocation, lastSelected };
+export { saveItem, loadItem, deleteItem, saveLocation, deleteLocation, deleteError, lastSelected };

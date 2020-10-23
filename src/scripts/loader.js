@@ -1,6 +1,7 @@
 import * as generator from './domTool';
 import * as ls from './locationStorage';
-import backgroundImage from './backgroundManager';
+import { imageContainer } from './backgroundManager';
+import shortcutComponent from './shortcutBar';
 import currentWeatherComponent from './currentWeatherDisplay';
 import sidebar from './sidebar';
 import { citySelector } from './mainWeatherDataPipe';
@@ -9,14 +10,16 @@ import { citySelector } from './mainWeatherDataPipe';
   if (!ls.loadItem('locationStorage') || ls.loadItem('locationStorage').length < 1) {
     const allLocations = [];
     ls.saveItem('locationStorage', allLocations);
-  } else {
-    return
+  }
+  if (!ls.loadItem('tempSwitch') || ls.loadItem('tempSwitch').length < 1) {
+    const tempFormat = ['metric'];
+    ls.saveItem('tempSwitch', tempFormat);
   }
 })();
 
 const pageBuilder = () => {
   const mainContainer = generator.elementGen('div', 'main-page-container', 'mainPageContainer');
-  mainContainer.append(backgroundImage(), currentWeatherComponent(), sidebar());
+  mainContainer.append(shortcutComponent(), currentWeatherComponent(), sidebar(), imageContainer());
   return mainContainer;
 }
 

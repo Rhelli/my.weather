@@ -4,7 +4,7 @@ import * as ls from './locationStorage';
 const refreshButton = () => {
   const refreshContainer = utility.elementGen('div', 'refresh-button-container', 'refreshButtonContainer');
   const refreshButton = utility.elementGen('button', 'refresh-button', 'refreshButton');
-  refreshButton.title = 'Update the current forecast.'
+  refreshButton.title = 'Update the current forecast.';
   refreshButton.addEventListener('click', (event) => {
     event.preventDefault();
     location.reload();
@@ -13,24 +13,24 @@ const refreshButton = () => {
   refreshButton.appendChild(refreshIcon);
   refreshContainer.appendChild(refreshButton);
   return refreshContainer;
-}
+};
 
 const deleteMyDataContainer = () => {
   const deleteMyDataContainer = utility.elementGen('div', 'delete-data-container', 'deleteDataContainer');
   const deleteMyDataButton = utility.elementGen('button', 'delete-my-data-button', 'deleteMyDataButton');
-  deleteMyDataButton.title = 'Delete all your stored data.'
+  deleteMyDataButton.title = 'Delete all your stored data.';
   deleteMyDataButton.addEventListener('click', (event) => {
     event.preventDefault();
     localStorage.clear();
     setTimeout(() => {
       location.reload();
     }, 500);
-  })
+  });
   const buttonText = utility.textGen('i', '<i*class="far*fa-trash-alt"></i>', 'delete-my-data-icon', 'deleteMyDataIcon', '*');
   deleteMyDataButton.appendChild(buttonText);
   deleteMyDataContainer.appendChild(deleteMyDataButton);
   return deleteMyDataContainer;
-}
+};
 
 const tempFormatSwitch = () => {
   const tempFormatContainer = utility.elementGen('div', 'temp-format-container', 'tempFormatContainer');
@@ -57,7 +57,7 @@ const tempFormatSwitch = () => {
     checkbox.checked = true;
   }
   checkbox.addEventListener('click', (event) => {
-    //event.preventDefault();
+    // event.preventDefault();
     const fLabel = document.querySelector('.temp-format-f');
     const cLabel = document.querySelector('.temp-format-c');
     let identifier = ls.loadItem('tempSwitch');
@@ -81,16 +81,15 @@ const tempFormatSwitch = () => {
     setTimeout(() => {
       location.reload();
     }, 500);
-  })
+  });
   tempSwitch.append(checkbox, slider);
   tempFormatContainer.append(celsius, tempSwitch, fahrenheit);
   return tempFormatContainer;
-}
+};
 
 const shortcutComponent = () => {
   const shortcutBar = utility.componentBuilder('shortcut-bar', 'shortcutBar', refreshButton(), deleteMyDataContainer(), tempFormatSwitch());
   return shortcutBar;
-}
+};
 
 export default shortcutComponent;
-

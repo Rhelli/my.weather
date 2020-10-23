@@ -12,26 +12,26 @@ const addLocation = () => {
       event.preventDefault();
       ls.saveLocation();
     }
-  })
+  });
   const submitButton = generator.elementGen('button', 'new-location-submit', 'newLocationSubmit');
   submitButton.type = 'button';
   submitButton.addEventListener('click', (event) => {
     event.preventDefault();
     ls.saveLocation();
-  })
+  });
   const buttonText = generator.textGen('p', '<i*class="fas*fa-plus"></i>', 'new-location-submit-text', 'newLocationSubmitText', '*');
   submitButton.appendChild(buttonText);
   form.append(input, submitButton);
   container.appendChild(form);
   return container;
-}
+};
 
 const loadLocations = () => {
   const allLocations = ls.loadItem('locationStorage');
   if (allLocations.length > 0) {
     return allLocations;
   }
-}
+};
 
 const locationList = () => {
   const container = generator.elementGen('div', 'location-list', 'locationList');
@@ -59,11 +59,11 @@ const locationList = () => {
     }
   }
   return container;
-}
+};
 
 const assembleComponent = () => {
   const locationComponent = generator.componentBuilder('location-component', 'locationComponent', addLocation(), locationList());
   return locationComponent;
-}
+};
 
 export default assembleComponent;

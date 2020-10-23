@@ -1,5 +1,5 @@
 const saveItem = (string, object) => {
-  localStorage.setItem(string, JSON.stringify(object))
+  localStorage.setItem(string, JSON.stringify(object));
 };
 
 const loadItem = (string) => JSON.parse(localStorage.getItem(string));
@@ -15,7 +15,7 @@ const saveLocation = () => {
     saveItem('locationStorage', allLocations);
     location.reload();
   }
-}
+};
 
 const deleteLocation = (id) => {
   const savedLocations = loadItem('locationStorage');
@@ -29,7 +29,7 @@ const deleteLocation = (id) => {
     saveItem('locationStorage', savedLocations);
     location.reload();
   }
-}
+};
 
 const deleteError = () => {
   if (loadItem('lastSelected') && loadItem('lastSelected').length > 0) {
@@ -45,7 +45,7 @@ const deleteError = () => {
     saveItem('lastSelected', error);
   }
   location.reload();
-}
+};
 
 const lastSelected = (cityName) => {
   if (loadItem('lastSelected') && loadItem('lastSelected').length > 0) {
@@ -56,6 +56,8 @@ const lastSelected = (cityName) => {
     const newSelection = [cityName];
     saveItem('lastSelected', newSelection);
   }
-}
+};
 
-export { saveItem, loadItem, deleteItem, saveLocation, deleteLocation, deleteError, lastSelected };
+export {
+  saveItem, loadItem, deleteItem, saveLocation, deleteLocation, deleteError, lastSelected,
+};

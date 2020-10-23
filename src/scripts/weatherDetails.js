@@ -5,7 +5,7 @@ const detailsSubtitle = () => {
   const text = generator.textGen('h5', 'Weather*Details', 'weather-details-text', 'weatherDetailsText', '*');
   container.appendChild(text);
   return container;
-}
+};
 
 const detailsList = () => {
   const container = generator.elementGen('div', 'weather-details-list', 'weatherDetailsList');
@@ -20,11 +20,11 @@ const detailsList = () => {
     container.appendChild(detailsContainer);
   }
   return container;
-}
+};
 
 const assembleComponent = () => {
   const weatherDetailsComponent = generator.componentBuilder('weather-details-component', 'weatherDetailsComponent', detailsSubtitle(), detailsList());
   return weatherDetailsComponent;
-}
+};
 
 export default assembleComponent;

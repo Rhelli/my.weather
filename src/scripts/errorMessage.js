@@ -13,8 +13,8 @@ const popup = (errorMessage) => {
     container.classList.add('error-popup-exit');
     setTimeout(() => {
       mainPageContainer.removeChild(errorPopupContainer);
-    }, 300)
-  })
+    }, 300);
+  });
   const title = utility.textGen('h3', 'Oops!', 'popup-error-title', 'popupErrorTitle');
   const errorMessageContainer = utility.elementGen('div', 'error-message-container', 'errorMessageContainer');
   const errorMessageIntro = utility.textGen('p', 'It*looks*like*an*error*occurred!', 'error-message-intro', 'errorMessageIntro', '*');
@@ -27,10 +27,10 @@ const popup = (errorMessage) => {
   removeLocationButton.addEventListener('click', (event) => {
     event.preventDefault();
     ls.deleteError();
-  })
+  });
   container.append(closeButton, title, errorMessageContainer, removeLocationButton);
   container.classList.add('error-popup-entrance');
   return container;
-}
+};
 
 export default popup;

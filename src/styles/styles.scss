@@ -9,34 +9,37 @@
 @-webkit-keyframes rotate-center {
   0% {
     -webkit-transform: rotate(0);
-            transform: rotate(0);
+    transform: rotate(0);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes rotate-center {
   0% {
     -webkit-transform: rotate(0);
-            transform: rotate(0);
+    transform: rotate(0);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @-webkit-keyframes scale-in-center {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 1;
   }
+
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
   }
 }
@@ -44,12 +47,13 @@
 @keyframes scale-in-center {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 1;
   }
+
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
   }
 }
@@ -57,12 +61,13 @@
 @-webkit-keyframes scale-out-center {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
   }
+
   100% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 1;
   }
 }
@@ -70,12 +75,13 @@
 @keyframes scale-out-center {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
   }
+
   100% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 1;
   }
 }
@@ -162,9 +168,9 @@ p {
   border-radius: 40px;
   padding: 0 0 0 10px;
   z-index: 10;
-  -webkit-box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
-  -moz-box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
-  box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
+  -webkit-box-shadow: 0 0 16px -2px rgba(26, 26, 26, 1);
+  -moz-box-shadow: 0 0 16px -2px rgba(26, 26, 26, 1);
+  box-shadow: 0 0 16px -2px rgba(26, 26, 26, 1);
 
   .refresh-button-container,
   .delete-data-container {
@@ -201,7 +207,7 @@ p {
     .delete-my-data-button {
       i {
         &:hover {
-          color: #E53935;
+          color: #e53935;
         }
       }
     }
@@ -268,14 +274,14 @@ p {
       }
 
       input:checked + .temp-switch-slider {
-        background-color: #2196FB;
+        background-color: #2196fb;
       }
 
       input:focus + .temp-switch-slider {
-        box-shadow: 0 0 1px #2196FB;
+        box-shadow: 0 0 1px #2196fb;
       }
 
-      input:checked + .temp-switch-slider:before {
+      input:checked + .temp-switch-slider::before {
         -webkit-transform: translateX(12px);
         -ms-transform: translateX(12px);
         transform: translateX(12px);
@@ -410,9 +416,9 @@ p {
   background: url('../assets/img/textures/diagonales-decalees.png'), rgba(174, 182, 191, 0.5);
   backdrop-filter: blur(5px);
   z-index: 2;
-  -webkit-box-shadow: -2px 0px 5px 0px rgba(40,41,41,0.29);
-  -moz-box-shadow: -2px 0px 5px 0px rgba(40,41,41,0.29);
-  box-shadow: -2px 0px 5px 0px rgba(40,41,41,0.29);
+  -webkit-box-shadow: -2px 0 5px 0 rgba(40, 41, 41, 0.29);
+  -moz-box-shadow: -2px 0 5px 0 rgba(40, 41, 41, 0.29);
+  box-shadow: -2px 0 5px 0 rgba(40, 41, 41, 0.29);
   padding: 30px;
   text-shadow: black 1px 1px 5px;
 
@@ -458,8 +464,9 @@ p {
           &:-webkit-autofill:focus,
           &:-webkit-autofill:active {
             -webkit-text-fill-color: white;
-            -webkit-box-shadow: 0 0 0px 1000px rgba(1, 1, 1, 0) inset;
-            transition: background-color 5000s ease-in-out 0s
+            -webkit-box-shadow: 0 0 0 1000px rgba(1, 1, 1, 0) inset;
+            box-shadow: 0 0 0 1000px rgba(1, 1, 1, 0) inset;
+            transition: background-color 5000s ease-in-out 0s;
           }
         }
 
@@ -479,16 +486,16 @@ p {
           p {
             font-size: 26px;
             font-weight: 300;
-            color: #2C3E50;
+            color: #2c3e50;
             transition-duration: 0.25s;
           }
 
           &:hover {
-            background-color: #FDFEFE;
+            background-color: #fdfefe;
             transition-duration: 0.15s;
 
             p {
-              color:#2980B9;
+              color: #2980b9;
               transition-duration: 0.2s;
             }
           }
@@ -513,6 +520,7 @@ p {
 
       &::-webkit-scrollbar-thumb {
         background: rgba(248, 249, 249, 0.6);
+
         &:hover {
           background: rgba(248, 249, 249, 1);
         }
@@ -552,8 +560,8 @@ p {
           }
 
           &:hover {
-            color: #E53935;
-            text-shadow: #EF9A9A 0px 0px 10px;
+            color: #e53935;
+            text-shadow: #ef9a9a 0 0 10px;
             transition: 0.4s;
             -webkit-animation: rotate-center 0.4s ease-in-out both;
             animation: rotate-center 0.4s ease-in-out both;
@@ -613,13 +621,13 @@ p {
 }
 
 .error-popup-entrance {
-  -webkit-animation: scale-in-center 0.2s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
-  animation: scale-in-center 0.2s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+  -webkit-animation: scale-in-center 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+  animation: scale-in-center 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
 }
 
 .error-popup-exit {
-  -webkit-animation: scale-out-center 0.2s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
-  animation: scale-out-center 0.2s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+  -webkit-animation: scale-out-center 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+  animation: scale-out-center 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
 }
 
 // ERROR POPUP -=-=-------------------------------------------------------------------//
@@ -637,9 +645,9 @@ p {
   border: 1px solid #606060;
   z-index: 100;
   background: url('../assets/img/textures/diagonales-decalees.png') rgba(213, 216, 220, 0.8);
-  -webkit-box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
-  -moz-box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
-  box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
+  -webkit-box-shadow: 0 0 16px -2px rgba(26, 26, 26, 1);
+  -moz-box-shadow: 0 0 16px -2px rgba(26, 26, 26, 1);
+  box-shadow: 0 0 16px -2px rgba(26, 26, 26, 1);
   padding: 20px;
 
   .popup-close-button {
@@ -659,19 +667,19 @@ p {
     border-top-right-radius: 8px;
     box-shadow: -1px 1px 3px #909090;
 
-      svg {
-        color: #909090;
-        font-size: 20px;
-        transform: rotate(45deg);
-        transition: 0.3s;
-      }
+    svg {
+      color: #909090;
+      font-size: 20px;
+      transform: rotate(45deg);
+      transition: 0.3s;
+    }
 
-      &:hover {
-        svg {
-          color: #E53935;
-          transition: 0.2s;
-        }
+    &:hover {
+      svg {
+        color: #e53935;
+        transition: 0.2s;
       }
+    }
   }
 
   .popup-error-title {
@@ -680,7 +688,7 @@ p {
     font: 700 62px/62px $title-font;
     text-align: center;
     margin-top: 20px;
-    color: #E53935;
+    color: #e53935;
     text-shadow: black 2px 2px 10px;
     border-bottom: 6px solid white;
   }
@@ -712,8 +720,8 @@ p {
     height: 50px;
     width: 50%;
     border-radius: 4px;
-    border: 1px solid #C8322E;
-    background: url('../assets/img/textures/diagonales-decalees.png') #E53935;
+    border: 1px solid #c8322e;
+    background: url('../assets/img/textures/diagonales-decalees.png') #e53935;
     box-shadow: 0 0 2px darkred;
     transition: 0.3s;
 
@@ -725,9 +733,9 @@ p {
 
     &:hover {
       box-shadow: none;
-      background: url('../assets/img/textures/diagonales-decalees.png') #C8322E;
+      background: url('../assets/img/textures/diagonales-decalees.png') #c8322e;
       transition: 0.2s;
-      border: 1px solid #AC2B28;
+      border: 1px solid #ac2b28;
     }
 
     &:focus {
@@ -735,9 +743,9 @@ p {
       border: none;
 
       p {
-        color: #EF9A9A;
+        color: #ef9a9a;
         transition: 0.1s;
-        text-shadow: #AC2B28 0 0 2px;
+        text-shadow: #ac2b28 0 0 2px;
       }
     }
   }
@@ -1098,6 +1106,7 @@ p {
       height: auto;
       width: auto;
       padding: 10px;
+
       p {
         line-height: 1.2;
       }

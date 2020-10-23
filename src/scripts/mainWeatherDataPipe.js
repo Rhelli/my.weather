@@ -20,8 +20,8 @@ const appendMainWeatherData = (cityName) => {
       currentForecastText.innerHTML = `${weatherObject.main}`;
       currentForecastExtraText.innerHTML = utility.capitalize(`${weatherObject.description}`);
       backgroundBuilder(weatherObject);
-    })
-}
+    });
+};
 
 const appendWeatherDetailsData = (cityName) => {
   api.fetchWeatherDetailsData(cityName)
@@ -39,8 +39,8 @@ const appendWeatherDetailsData = (cityName) => {
     }).catch((errorMessage) => {
       const mainContainer = document.getElementById('mainPageContainer');
       mainContainer.appendChild(popup(errorMessage));
-    })
-}
+    });
+};
 
 const citySelector = (cityName) => {
   let city;
@@ -52,12 +52,10 @@ const citySelector = (cityName) => {
     appendMainWeatherData(city);
     appendWeatherDetailsData(city);
   } else if (ls.loadItem('locationStorage').length > 0) {
-    city = ls.loadItem('locationStorage')[0];
+    [city] = ls.loadItem('locationStorage');
     appendMainWeatherData(city);
     appendWeatherDetailsData(city);
-  } else {
-    return;
   }
-}
+};
 
 export { appendMainWeatherData, appendWeatherDetailsData, citySelector };

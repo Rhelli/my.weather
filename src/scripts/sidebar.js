@@ -6,6 +6,6 @@ const sidebar = () => {
   const container = generator.elementGen('div', 'sidebar', 'sidebar');
   container.append(locationComponent(), weatherDetailsComponent());
   return container;
-}
+};
 
 export default sidebar;

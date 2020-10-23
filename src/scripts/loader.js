@@ -15,16 +15,16 @@ import { citySelector } from './mainWeatherDataPipe';
     const tempFormat = ['metric'];
     ls.saveItem('tempSwitch', tempFormat);
   }
-})();
+}());
 
 const pageBuilder = () => {
   const mainContainer = generator.elementGen('div', 'main-page-container', 'mainPageContainer');
   mainContainer.append(shortcutComponent(), currentWeatherComponent(), sidebar(), imageContainer());
   return mainContainer;
-}
+};
 
 (function () {
   citySelector();
-})();
+}());
 
 export default pageBuilder;

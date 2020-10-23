@@ -1,9 +1,9 @@
 const elementGen = (tag, className = null, idName = null) => {
   const element = document.createElement(tag);
-  if (className) { element.classList.add(className) };
-  if (idName) { element.id = idName };
+  if (className) { element.classList.add(className); }
+  if (idName) { element.id = idName; }
   return element;
-}
+};
 
 const textGen = (tag, text, className = null, idName = null, symbol = null) => {
   const element = document.createElement(tag);
@@ -15,46 +15,48 @@ const textGen = (tag, text, className = null, idName = null, symbol = null) => {
     } else {
       spacedText.push(char);
     }
-  })
+  });
   const parsedText = spacedText.join('');
   element.innerHTML = parsedText;
-  if (className) { element.classList.add(className) };
-  if (idName) { element.id = idName };
+  if (className) { element.classList.add(className); }
+  if (idName) { element.id = idName; }
   return element;
-}
+};
 
 const countryCodeFormatter = (country) => {
   let array = country.split('');
   array[1] = array[1].toLowerCase('');
   array = array.join('');
   return array;
-}
+};
 
 const capitalize = (text) => {
-  let parsed = text.replace(/(^\w|\s\w)/g, m => m.toUpperCase())
+  const parsed = text.replace(/(^\w|\s\w)/g, m => m.toUpperCase());
   return parsed;
-}
+};
 
 const uvConverter = (value) => {
   if (value < 2) {
     return 'Low';
-  } else if (value < 5) {
+  } if (value < 5) {
     return 'Medium';
-  } else if (value < 7) {
+  } if (value < 7) {
     return 'High';
-  } else if (value < 10) {
+  } if (value < 10) {
     return 'Very High';
-  } else if (value > 11) {
+  } if (value > 11) {
     return 'Extremely High';
   }
-}
+};
 
 const componentBuilder = (className, idName, ...containers) => {
   const mainContainer = elementGen('div', className, idName);
   containers.forEach(container => {
     mainContainer.append(container);
-  })
+  });
   return mainContainer;
-}
+};
 
-export { elementGen, textGen, countryCodeFormatter, capitalize, uvConverter, componentBuilder }
+export {
+  elementGen, textGen, countryCodeFormatter, capitalize, uvConverter, componentBuilder,
+};

@@ -5,11 +5,10 @@ const imageContainer = () => {
   const backgroundImage = generator.elementGen('img', 'background-image', 'backgroundImage');
   container.appendChild(backgroundImage);
   return container;
-}
+};
 
 const backgroundBuilder = (weatherObject) => {
   const backgroundImage = document.getElementById('backgroundImageContainer');
-  const datetime = `${weatherObject.datetime}`;
   const weather = `${weatherObject.description}`;
   const weatherTypes = [
     RegExp('clouds'),
@@ -45,6 +44,6 @@ const backgroundBuilder = (weatherObject) => {
       backgroundImage.style.backgroundImage = `url(../src/assets/img/backgrounds/night/${11}.jpg)`;
     }
   }
-}
+};
 
 export { imageContainer, backgroundBuilder };

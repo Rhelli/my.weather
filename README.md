@@ -110,7 +110,7 @@ There are a few commands that you can use interact with the project:
 ### Adding and Changing Between Saved Locations
 
 
-<a href="screens/changing-locations.gif"><img src="screens/changing-locations.gif" alt="Changing Locations" width="800" height="auto"></a>
+<a href="screens/changing-locations.gif"><img src="screens/changing-locations.gif" alt="Changing Locations" width="400" height="auto"></a>
 
 > As the user adds and saves new locations, their weather data can be easily accessed.
 

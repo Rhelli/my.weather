@@ -28,6 +28,58 @@
   }
 }
 
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes scale-out-center {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-out-center {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+}
+
 $title-font: 'Catamaran', sans-serif, monospace;
 $body-font: 'Roboto', sans-serif, monospace;
 
@@ -560,6 +612,16 @@ p {
   }
 }
 
+.error-popup-entrance {
+  -webkit-animation: scale-in-center 0.2s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+  animation: scale-in-center 0.2s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+}
+
+.error-popup-exit {
+  -webkit-animation: scale-out-center 0.2s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+  animation: scale-out-center 0.2s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+}
+
 // ERROR POPUP -=-=-------------------------------------------------------------------//
 .error-popup-container {
   display: flex;
@@ -568,14 +630,13 @@ p {
   flex-flow: column nowrap;
   position: absolute;
   left: 25%;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 33%;
   height: auto;
   width: 400px;
   border-radius: 8px;
   border: 1px solid #606060;
   z-index: 100;
-  background-color: rgba(213, 216, 220, 0.9);
+  background: url('../assets/img/textures/diagonales-decalees.png') rgba(213, 216, 220, 0.8);
   -webkit-box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
   -moz-box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
   box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
@@ -629,6 +690,8 @@ p {
     width: 100%;
     font: 400 20px/20px $body-font;
     margin: 20px 0;
+    color: white;
+    text-shadow: black 0 0 5px;
 
     .error-message-intro {
       text-align: center;
@@ -642,6 +705,40 @@ p {
       padding: 20px 10px;
       text-align: center;
       border-radius: 10px;
+    }
+  }
+
+  .error-fix-button {
+    height: 50px;
+    width: 50%;
+    border-radius: 4px;
+    border: 1px solid #C8322E;
+    background: url('../assets/img/textures/diagonales-decalees.png') #E53935;
+    box-shadow: 0 0 2px darkred;
+    transition: 0.3s;
+
+    p {
+      font: 400 18px/18px $body-font;
+      color: white;
+      text-shadow: black 0 0 2px;
+    }
+
+    &:hover {
+      box-shadow: none;
+      background: url('../assets/img/textures/diagonales-decalees.png') #C8322E;
+      transition: 0.2s;
+      border: 1px solid #AC2B28;
+    }
+
+    &:focus {
+      outline: none;
+      border: none;
+
+      p {
+        color: #EF9A9A;
+        transition: 0.1s;
+        text-shadow: #AC2B28 0 0 2px;
+      }
     }
   }
 }

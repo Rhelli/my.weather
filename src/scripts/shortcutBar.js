@@ -78,7 +78,9 @@ const tempFormatSwitch = () => {
       identifier = ['metric'];
       ls.saveItem('tempSwitch', identifier);
     }
-    location.reload();
+    setTimeout(() => {
+      location.reload();
+    }, 500);
   })
   tempSwitch.append(checkbox, slider);
   tempFormatContainer.append(celsius, tempSwitch, fahrenheit);

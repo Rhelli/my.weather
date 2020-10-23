@@ -157,10 +157,10 @@ p {
   justify-items: flex-start;
   align-items: center;
   height: 60px;
-  width: 250px;
+  width: 260px;
   background-color: rgba(213, 216, 220, 0.9);
   border-radius: 40px;
-  padding: 0;
+  padding: 0 0 0 10px;
   z-index: 10;
   -webkit-box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
   -moz-box-shadow: 0px 0px 16px -2px rgba(26,26,26,1);
@@ -786,6 +786,35 @@ p {
       }
     }
   }
+
+  .sidebar {
+    padding: 20px 10px;
+    width: 35%;
+
+    .location-component {
+      .new-location-input-container {
+        .new-location-form {
+          .new-location-submit {
+            top: 20px;
+            height: 40px;
+            width: 40px;
+
+            p {
+              font-size: 20px;
+            }
+          }
+
+          .new-location-input {
+            font-size: 20px;
+
+            &::placeholder {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 769px) {
@@ -794,7 +823,7 @@ p {
     flex-flow: column nowrap;
     height: 240px;
     width: 60px;
-    padding: 0 10px;
+    padding: 10px 0 0 0;
     top: 10px;
     left: 10px;
 
@@ -852,7 +881,7 @@ p {
     }
 
     .current-location-info-container {
-      height: 40%;
+      height: 30%;
       margin-top: 20px;
       width: 60%;
 
@@ -888,32 +917,47 @@ p {
   }
 
   .sidebar {
-    padding: 20px 10px;
-    width: 35%;
-
     .location-component {
-      .new-location-input-container {
-        .new-location-form {
-          .new-location-submit {
-            top: 20px;
-            height: 40px;
-            width: 40px;
+      .location-list {
+        .location-list-item-container {
+          height: auto;
 
-            p {
-              font-size: 20px;
-            }
+          .location-list-text {
+            font-size: 16px;
           }
 
-          .new-location-input {
-            font-size: 20px;
+          .location-list-button {
+            height: auto;
+            padding: 5px 0;
 
-            &::placeholder {
-              font-size: 18px;
+            .location-delete-button-text {
+              font-size: 16px;
             }
           }
         }
       }
     }
+
+    .weather-details-component {
+      .weather-details-subtitle {
+        .weather-details-text {
+          font-size: 20px;
+        }
+      }
+
+      .weather-details-list {
+        div {
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .error-popup-container {
+    left: 20px;
+    max-width: 80%;
   }
 }
 
@@ -1027,6 +1071,35 @@ p {
             }
           }
         }
+      }
+    }
+  }
+
+  .error-popup-container {
+    left: 40px;
+    max-width: 80%;
+    top: 25%;
+
+    .popup-error-title {
+      font-size: 46px;
+    }
+
+    .error-message-container {
+      .error-message-intro {
+        font-size: 20px;
+      }
+
+      .error-message-body {
+        font-size: 16px;
+      }
+    }
+
+    .error-fix-button {
+      height: auto;
+      width: auto;
+      padding: 10px;
+      p {
+        line-height: 1.2;
       }
     }
   }

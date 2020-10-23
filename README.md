@@ -99,7 +99,7 @@ There are a few commands that you can use interact with the project:
 
 ## 🔮 Showcase
 
-### A Quick Site Tour
+### Adding New Locations
 <p align="center>
 
 <a href="screens/adding-locations.gif"><img src="screens/adding-locations.gif" alt="Adding New Locations" width="800" height="auto"></a>
@@ -107,14 +107,14 @@ There are a few commands that you can use interact with the project:
 > New locations can be added, stored and removed in the sidebar. The last selected location is always remembered and loaded first.
 
 
-### The Menu Page and Scroll Links
+### Adding and Changing Between Saved Locations
 
 
 <a href="screens/changing-locations.gif"><img src="screens/changing-locations.gif" alt="Changing Locations" width="800" height="auto"></a>
 
 > As the user adds and saves new locations, their weather data can be easily accessed.
 
-### Viewing Friend Requests From The Navbar
+### Adding New Locations On Mobile
 
 
 <a href="screens/mobile-adding-locations.gif"><img src="screens/mobile-adding-locations.gif" alt="Adding Locations On Mobile" width="600" height="auto"></a>

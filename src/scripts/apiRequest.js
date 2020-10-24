@@ -3,7 +3,7 @@ import * as ls from './locationStorage';
 import popup from './errorMessage';
 
 const fetchCityTimeData = async (lat, lng) => {
-  const apiKey = process.env.TIMEZONE_KEY;
+  const apiKey = TIMEZONE_KEY;
   const apiRequest = await fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=position&lat=${lat}&lng=${lng}`);
   const response = await apiRequest.json();
   const datetime = response.formatted;
@@ -11,7 +11,7 @@ const fetchCityTimeData = async (lat, lng) => {
 };
 
 const fetchMainWeatherData = async (cityName) => {
-  const apiKey = process.env.OPENWEATHER_KEY;
+  const apiKey = OPENWEATHER_KEY;
   const unitFormat = ls.loadItem('tempSwitch')[0];
   const apiRequest = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${unitFormat}`, { mode: 'cors' });
   const response = await apiRequest.json();
@@ -40,7 +40,7 @@ const fetchMainWeatherData = async (cityName) => {
 };
 
 const fetchUvIndexData = async (lat, lon) => {
-  const apiKey = process.env.OPENWEATHER_KEY;
+  const apiKey = OPENWEATHER_KEY;
   const apiRequest = await fetch(`http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`);
   const response = await apiRequest.json();
   const index = response;
@@ -49,7 +49,7 @@ const fetchUvIndexData = async (lat, lon) => {
 
 
 const fetchWeatherDetailsData = async (cityName) => {
-  const apiKey = process.env.OPENWEATHER_KEY;
+  const apiKey = OPENWEATHER_KEY;
   const unitFormat = ls.loadItem('tempSwitch')[0];
   const apiRequest = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${unitFormat}`, { mode: 'cors' });
   const response = await apiRequest.json();

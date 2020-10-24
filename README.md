@@ -63,8 +63,8 @@ The totality of the above, was built using solely Webpack, Javascript and SCSS.
  - [Date-fns](https://date-fns.org/) for datetime formatting
 
 **APIs Used**
- - [OpenWeather API](https://openweathermap.org/api)
- - [TimeZoneDB API](https://timezonedb.com/)
+ - [OpenWeather API](https://openweathermap.org/api) - Weather Data
+ - [TimeZoneDB API](https://timezonedb.com/) - Datetime Data by location
 
 **Linters & Quality Control**
  - [ESlint](https://eslint.org/)

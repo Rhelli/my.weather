@@ -117,7 +117,7 @@ There are a few commands that you can use interact with the project:
 ### Adding New Locations On Mobile
 
 
-<a href="screens/mobile-adding-locations.gif"><img src="screens/mobile-adding-locations.gif" alt="Adding Locations On Mobile" width="608" height="342"></a>
+<a href="screens/mobile-adding-locations.gif"><img src="screens/mobile-adding-locations.gif" alt="Adding Locations On Mobile" width="342" height="608"></a>
 
 > A similar view of adding new locations on mobile sized screens.
 

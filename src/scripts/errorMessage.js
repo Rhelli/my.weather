@@ -1,7 +1,7 @@
 import * as utility from './domTool';
 import * as ls from './locationStorage';
 
-const popup = (errorMessage) => {
+const popup = () => {
   const container = utility.elementGen('div', 'error-popup-container', 'errorPopupContainer');
   const closeButton = utility.elementGen('button', 'popup-close-button', 'popupCloseButton');
   const buttonText = utility.textGen('p', '<i*class="fas*fa-plus"></i>', 'popup-close-button-text', 'popupCloseButtonText', '*');
@@ -12,7 +12,7 @@ const popup = (errorMessage) => {
     container.classList.remove('error-popup-entrance');
     container.classList.add('error-popup-exit');
     setTimeout(() => {
-      mainPageContainer.removeChild(errorPopupContainer);
+      mainPageContainer.removeChild(container);
     }, 300);
   });
   const title = utility.textGen('h3', 'Oops!', 'popup-error-title', 'popupErrorTitle');

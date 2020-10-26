@@ -40,7 +40,7 @@ const fetchMainWeatherData = async (cityName) => {
 };
 
 const fetchUvIndexData = async (lat, lon) => {
-  const apiKey = OPENWEATHER_KEY;
+  const apiKey = process.env.OPENWEATHER_KEY;
   const apiRequest = await fetch(`http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`);
   const response = await apiRequest.json();
   const index = response;
@@ -49,7 +49,7 @@ const fetchUvIndexData = async (lat, lon) => {
 
 
 const fetchWeatherDetailsData = async (cityName) => {
-  const apiKey = OPENWEATHER_KEY;
+  const apiKey = process.env.OPENWEATHER_KEY;
   const unitFormat = ls.loadItem('tempSwitch')[0];
   const apiRequest = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${unitFormat}`, { mode: 'cors' });
   const response = await apiRequest.json();

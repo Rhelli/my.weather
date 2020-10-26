@@ -9,7 +9,7 @@
 </h3>
 <p align="center">
     <br />
-    <a href=""><strong>Visit The Site »</strong></a>
+    <a href="https://rhelli.github.io/API-Weather-App/"><strong>Visit The Site »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Rhelli/API-Weather-App/archive/develop.zip">Download this repository</a>
@@ -73,7 +73,7 @@ The totality of the above, was built using solely Webpack, Javascript and SCSS.
 ### 🛠️ Setup & Use
 
 #### Setup
-For the live site, [head here.]()
+For the live site, [head here.](https://rhelli.github.io/API-Weather-App/)
 
 1. To inspect and tinker with the code on your system, download this repo either [here]() or from the link at the top of the page
 

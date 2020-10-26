@@ -17,7 +17,11 @@
     "eol-last": "off",
     "arrow-parens": "off",
     "no-plusplus": "off",
-    "consistent-return": "off"
+    "consistent-return": "off",
+    "no-unused-vars": "off",
+    "no-undef": "off",
+    "func-names": "off",
+    "no-restricted-globals": "off"
   },
   "ignorePatterns": [
     "dist/",

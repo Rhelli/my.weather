@@ -23,7 +23,6 @@
     "url": "https://github.com/Rhelli/API-Weather-App/issues"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1",
     "babel-eslint": "^10.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.2.1",
@@ -48,6 +47,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "date-fns": "^2.16.1",
     "dotenv-webpack": "^2.0.0"
   }

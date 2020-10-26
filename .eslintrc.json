@@ -17,7 +17,7 @@
     "eol-last": "off",
     "arrow-parens": "off",
     "no-plusplus": "off",
-    "consistent-return": "off",
+    "consistent-return": "off"
   },
   "ignorePatterns": [
     "dist/",

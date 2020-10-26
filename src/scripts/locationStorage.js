@@ -13,7 +13,7 @@ const saveLocation = () => {
     newLocation = document.getElementById('newLocationInput').value;
     allLocations.push(newLocation);
     saveItem('locationStorage', allLocations);
-    location.reload();
+    window.location.reload();
   }
 };
 
@@ -27,7 +27,7 @@ const deleteLocation = (id) => {
     }
     savedLocations.splice(id, 1);
     saveItem('locationStorage', savedLocations);
-    location.reload();
+    window.location.reload();
   }
 };
 
@@ -44,7 +44,7 @@ const deleteError = () => {
     error = [];
     saveItem('lastSelected', error);
   }
-  location.reload();
+  window.location.reload();
 };
 
 const lastSelected = (cityName) => {

@@ -7,7 +7,7 @@ const refreshButton = () => {
   refreshButton.title = 'Update the current forecast.';
   refreshButton.addEventListener('click', (event) => {
     event.preventDefault();
-    location.reload();
+    window.location.reload();
   });
   const refreshIcon = utility.textGen('i', '<i*class="fas*fa-redo-alt"></i>', 'refresh-icon', 'refreshIcon', '*');
   refreshButton.appendChild(refreshIcon);
@@ -23,7 +23,7 @@ const deleteMyDataContainer = () => {
     event.preventDefault();
     localStorage.clear();
     setTimeout(() => {
-      location.reload();
+      window.location.reload();
     }, 500);
   });
   const buttonText = utility.textGen('i', '<i*class="far*fa-trash-alt"></i>', 'delete-my-data-icon', 'deleteMyDataIcon', '*');
@@ -56,8 +56,7 @@ const tempFormatSwitch = () => {
     fahrenheit.classList.add('highlighted');
     checkbox.checked = true;
   }
-  checkbox.addEventListener('click', (event) => {
-    // event.preventDefault();
+  checkbox.addEventListener('click', () => {
     const fLabel = document.querySelector('.temp-format-f');
     const cLabel = document.querySelector('.temp-format-c');
     let identifier = ls.loadItem('tempSwitch');
@@ -79,7 +78,7 @@ const tempFormatSwitch = () => {
       ls.saveItem('tempSwitch', identifier);
     }
     setTimeout(() => {
-      location.reload();
+      window.location.reload();
     }, 500);
   });
   tempSwitch.append(checkbox, slider);

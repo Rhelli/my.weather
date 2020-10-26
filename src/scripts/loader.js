@@ -6,7 +6,7 @@ import currentWeatherComponent from './currentWeatherDisplay';
 import sidebar from './sidebar';
 import { citySelector } from './mainWeatherDataPipe';
 
-(function () {
+(function storageInit() {
   if (!ls.loadItem('locationStorage') || ls.loadItem('locationStorage').length < 1) {
     const allLocations = [];
     ls.saveItem('locationStorage', allLocations);
@@ -23,7 +23,7 @@ const pageBuilder = () => {
   return mainContainer;
 };
 
-(function () {
+(function locationLoader() {
   citySelector();
 }());
 

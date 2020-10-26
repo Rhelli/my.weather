@@ -41,7 +41,7 @@ const fetchMainWeatherData = async (cityName) => {
 
 const fetchUvIndexData = async (lat, lon) => {
   const apiKey = process.env.OPENWEATHER_KEY;
-  const apiRequest = await fetch(`http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+  const apiRequest = await fetch(`https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`);
   const response = await apiRequest.json();
   const index = response;
   return index;

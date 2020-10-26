@@ -28,20 +28,20 @@ const backgroundBuilder = (weatherObject) => {
   if (weatherObject.dayOrNight === 'd') {
     for (let i = 0; i < weatherTypes.length; i++) {
       if (weatherTypes[i].test(weather)) {
-        backgroundImage.style.backgroundImage = `url(../src/assets/img/backgrounds/day/${i}.jpg)`;
+        backgroundImage.style.backgroundImage = `url(./assets/img/backgrounds/day/${i}.jpg)`;
       }
     }
     if (weatherTypes[12].test(weather)) {
-      backgroundImage.style.backgroundImage = `url(../src/assets/img/backgrounds/day/${11}.jpg)`;
+      backgroundImage.style.backgroundImage = `url(./assets/img/backgrounds/day/${11}.jpg)`;
     }
   } else if (weatherObject.dayOrNight === 'n') {
     for (let i = 0; i < weatherTypes.length; i++) {
       if (weatherTypes[i].test(weather)) {
-        backgroundImage.style.backgroundImage = `url(../src/assets/img/backgrounds/night/${i}.jpg)`;
+        backgroundImage.style.backgroundImage = `url(./assets/img/backgrounds/night/${i}.jpg)`;
       }
     }
     if (weatherTypes[12].test(weather)) {
-      backgroundImage.style.backgroundImage = `url(../src/assets/img/backgrounds/night/${11}.jpg)`;
+      backgroundImage.style.backgroundImage = `url(./assets/img/backgrounds/night/${11}.jpg)`;
     }
   }
 };

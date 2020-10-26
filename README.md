@@ -9,28 +9,28 @@
 </h3>
 <p align="center">
     <br />
-    <a href="https://rhelli.github.io/API-Weather-App/"><strong>Visit The Site »</strong></a>
+    <a href="https://rhelli.github.io/my.weather/"><strong>Visit The Site »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Rhelli/API-Weather-App/archive/develop.zip">Download this repository</a>
+    <a href="https://github.com/Rhelli/my.weather/archive/master.zip">Download this repository</a>
     |
-    <a href="https://github.com/Rhelli/API-Weather-App/issues/new/choose">Report A Bug</a>
+    <a href="https://github.com/Rhelli/my.weather/issues/new/choose">Report A Bug</a>
     |
-    <a href="https://github.com/Rhelli/API-Weather-App/fork">Fork It</a>
+    <a href="https://github.com/Rhelli/my.weather/fork">Fork It</a>
   </p>
 </p>
 
 
 ## 🔖 Table of Contents
-  - [The Project Brief](https://github.com/Rhelli/Restaurant-Website/tree/feature/readme#-the-project-brief)
-  - [The Nitty Gritty](https://github.com/Rhelli/Restaurant-Website/tree/feature/readme#-the-nitty-gritty)
-  - [Tools & Technology Used](https://github.com/Rhelli/Restaurant-Website/tree/feature/readme#-tools--technology-used)
-  - [Setup & Use](https://github.com/Rhelli/Restaurant-Website/tree/feature/readme#%EF%B8%8F-setup--use)
-  - [Showcase](https://github.com/Rhelli/Restaurant-Website/tree/feature/readme#-showcase)
-  - [Contributions, Issues and Forking](https://github.com/Rhelli/Restaurant-Website/tree/feature/readme#-contributions-issues-and-forking)
-  - [Creator](https://github.com/Rhelli/Restaurant-Website/tree/feature/readme#%EF%B8%8F-creator)
-  - [Show Your Support!](https://github.com/Rhelli/Restaurant-Website/tree/feature/readme#%EF%B8%8F-show-your-support)
-  - [Licensing](https://github.com/Rhelli/Restaurant-Website/tree/feature/readme#-licensing)
+  - [The Project Brief](https://github.com/Rhelli/my.weather#-the-project-brief)
+  - [The Nitty Gritty](https://github.com/Rhelli/my.weather#-the-nitty-gritty)
+  - [Tools & Technology Used](https://github.com/Rhelli/my.weather#-tools--technology-used)
+  - [Setup & Use](https://github.com/Rhelli/my.weather#%EF%B8%8F-setup--use)
+  - [Showcase](https://github.com/Rhelli/my.weather#-showcase)
+  - [Contributions, Issues and Forking](https://github.com/Rhelli/my.weather#-contributions-issues-and-forking)
+  - [Creator](https://github.com/Rhelli/my.weather#%EF%B8%8F-creator)
+  - [Show Your Support!](https://github.com/Rhelli/my.weather#%EF%B8%8F-show-your-support)
+  - [Licensing](https://github.com/Rhelli/my.weather#-licensing)
 
 
 ## 🔰 The Project Brief
@@ -73,7 +73,7 @@ The totality of the above, was built using solely Webpack, Javascript and SCSS.
 ### 🛠️ Setup & Use
 
 #### Setup
-For the live site, [head here.](https://rhelli.github.io/API-Weather-App/)
+For the live site, [head here.](https://rhelli.github.io/my.weather/)
 
 1. To inspect and tinker with the code on your system, download this repo either [here]() or from the link at the top of the page
 
@@ -128,10 +128,10 @@ There are a few commands that you can use interact with the project:
 
 Contributions, issues and feature requests are more than welcome! 
 
-If you have any problems running or setting up this project, please submit it as a bug on the [issues page](https://github.com/Rhelli/API-Weather-App/issues) right away!
+If you have any problems running or setting up this project, please submit it as a bug on the [issues page](https://github.com/Rhelli/my.weather/issues) right away!
 
 If you want to make your own changes, modifications or improvements, go ahead and Fork it!
-1. [Fork it](https://github.com/Rhelli/API-Weather-App/fork)
+1. [Fork it](https://github.com/Rhelli/my.weather/fork)
 2. Create your working branch (git checkout -b [choose-a-name])
 3. Commit your changes (git commit -am 'what this commit will fix/add/improve')
 4. Push to the branch (git push origin [chosen-name])
@@ -145,4 +145,4 @@ If you want to make your own changes, modifications or improvements, go ahead an
 Give a ⭐️ if you like this project!
 
 ## 📑 Licensing
-This project is [MIT](https://github.com/Rhelli/API-Weather-App/LICENSE.txt) licensed.
+This project is [MIT](https://github.com/Rhelli/my.weather/LICENSE.txt) licensed.

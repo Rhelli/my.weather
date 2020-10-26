@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Catamaran';
+  src:
+    url('Catamaran-Regular.woff2') format('woff2'),
+    url('Catamaran-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Catamaran';
+  src:
+    url('Catamaran-Light.woff2') format('woff2'),
+    url('Catamaran-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Catamaran';
+  src:
+    url('Catamaran-Bold.woff2') format('woff2'),
+    url('Catamaran-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Catamaran';
+  src:
+    url('Catamaran-Medium.woff2') format('woff2'),
+    url('Catamaran-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}

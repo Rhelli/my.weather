@@ -1,13 +1,15 @@
 {
-  "name": "API-Weather-App",
+  "name": "my.weather",
+  "homepage": "https://Rhelli.github.io/API-Weather-App",
   "version": "1.0.0",
-  "description": "A weather app utilising weather APIs to provide local weather updates",
+  "description": "A weather app for all your favourite places on earth.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server --open"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
   },
   "repository": {
     "type": "git",
@@ -19,15 +21,16 @@
   "bugs": {
     "url": "https://github.com/Rhelli/API-Weather-App/issues"
   },
-  "homepage": "https://github.com/Rhelli/API-Weather-App#readme",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.2.1",
     "css-loader": "^4.3.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "file-loader": "^6.1.1",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^4.5.0",
     "preload-webpack-plugin": "^3.0.0-beta.3",
     "sass": "^1.27.0",
@@ -39,6 +42,12 @@
     "stylelint-csstree-validator": "^1.8.0",
     "stylelint-scss": "^3.17.2",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "date-fns": "^2.16.1",
+    "dotenv-webpack": "^2.0.0"
   }
 }

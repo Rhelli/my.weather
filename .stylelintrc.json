@@ -16,6 +16,10 @@
     "build/**",
     "dist/**",
     "**/reset*.css",
-    "**/bootstrap*.css"
+    "**/bootstrap*.css",
+    "./src/styles/weather-icons-wind.css",
+    "./src/styles/weather-icons-wind.min.css",
+    "./src/styles/weather-icons.css",
+    "./src/styles/weather-icons.min.css"
   ]
 }
